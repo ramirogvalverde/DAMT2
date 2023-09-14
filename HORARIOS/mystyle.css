@@ -1,0 +1,126 @@
+body {
+    font-family: arial, sans-serif;
+    width: 100%;
+    background-color: #1b1b32;
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #cccccc;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    max-width: 800px;
+}
+
+div {
+    background-color: #101f3d;
+}
+
+h1 {
+    text-align: center;
+    background-color: #003366;
+    padding: 8px;
+    box-shadow: 0px 20px 50px black;
+}
+  
+h3 {
+    text-align: left;
+    background-color: #003366;
+    padding: 8px;
+    border-bottom: 4px solid #0e5838;
+}
+
+h4 {
+    font-size: 17px;
+}
+  
+p {
+    font-weight: 800;
+    font-size: 30px;
+}
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 4px solid #0e5838;
+}
+
+td a{
+    color:#ca7a02;
+    text-decoration: none;
+}
+
+td a:visited{
+    color:#ca7a02;
+    text-decoration: none;
+}
+  
+td, th {
+    border: 1px solid #003366;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:hover {
+    background-color: #3e4444;
+}
+  
+.firma {
+    float: right;
+    color: #003366;
+    text-decoration: none;
+}
+  
+.firma:hover {
+    color: white;
+}
+
+.firma:visited {
+    color: #003366;
+}
+
+.firma:visited:hover {
+    color: white;
+}
+
+h4 a {
+    float: center;
+    color: #cccccc;
+    text-decoration: none;
+    }
+      
+h4 a:visited {
+    color: #cccccc;
+    text-decoration: none;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #003366;
+    border-bottom: 4px solid #0e5838;
+    box-shadow: 0px 20px 50px black;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 700 px;
+}
+  
+
+li a {
+    display: block;
+    color: #cccccc;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+}
+
+.active{
+    background-color: #006699; 
+}
+  
+li a:hover:not(.active) {
+    background-color: #3e4444;
+}
