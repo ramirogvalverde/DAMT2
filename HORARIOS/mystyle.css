@@ -47,12 +47,12 @@ table {
     border-bottom: 4px solid #0e5838;
 }
 
-td a{
+td a, th a{
     color:#ca7a02;
     text-decoration: none;
 }
 
-td a:visited{
+td a:visited, th a:visited{
     color:#ca7a02;
     text-decoration: none;
 }
