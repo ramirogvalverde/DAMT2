@@ -125,11 +125,11 @@ public class FicherosHoja1 {
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
 
-            Properties prop = new Properties();
+            Properties prop2 = new Properties();
 
             while (fis.available() > 0) {
-                prop = (Properties) ois.readObject();
-                System.out.println(prop.toString());
+                prop2 = (Properties) ois.readObject();
+                System.out.println(prop2.toString());
             }
 
             ois.close();

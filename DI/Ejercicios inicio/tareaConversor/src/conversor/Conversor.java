@@ -34,20 +34,29 @@ public class Conversor extends javax.swing.JFrame {
         Fahrenheit = new javax.swing.JLabel();
         Convertir = new javax.swing.JButton();
         respuesta = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Conversor Celsius");
+        setTitle("Conversor C a F");
+        setMaximumSize(new java.awt.Dimension(230, 200));
+        setMinimumSize(new java.awt.Dimension(230, 200));
+        setPreferredSize(new java.awt.Dimension(230, 200));
         setResizable(false);
+        setSize(new java.awt.Dimension(230, 200));
 
-        Celsius.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Celsius.setText("º Celsius");
+        Background.setBackground(new java.awt.Color(153, 204, 255));
+        Background.setForeground(new java.awt.Color(153, 204, 255));
+        Background.setPreferredSize(new java.awt.Dimension(230, 200));
 
-        Fahrenheit.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Fahrenheit.setText("º Fahrenheit");
+        Celsius.setText("º C");
 
-        Convertir.setBackground(new java.awt.Color(153, 153, 153));
-        Convertir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Convertir.setText("CONVERTIR");
+        Fahrenheit.setText("º F");
+
+        Convertir.setBackground(new java.awt.Color(102, 255, 0));
+        Convertir.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        Convertir.setText("Convertir");
+        Convertir.setMaximumSize(new java.awt.Dimension(82, 22));
+        Convertir.setMinimumSize(new java.awt.Dimension(82, 22));
         Convertir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConvertirActionPerformed(evt);
@@ -57,51 +66,58 @@ public class Conversor extends javax.swing.JFrame {
         respuesta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         respuesta.setFocusable(false);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Conversor");
+
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
         Background.setLayout(BackgroundLayout);
         BackgroundLayout.setHorizontalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(87, 87, 87)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Convertir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(respuesta)
-                            .addComponent(EntradaCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Convertir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Fahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(EntradaCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29)
-                .addComponent(Convertir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Celsius, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Convertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -123,6 +139,12 @@ public class Conversor extends javax.swing.JFrame {
             respuesta.setText(Double.toString(fahrenheit));
 
         } catch (NumberFormatException e) {
+            String error =e.getMessage();
+            if(e.getMessage().contains("empty")){
+             JOptionPane.showMessageDialog(null, "Campo vacío", "ERROR", JOptionPane.ERROR_MESSAGE);   
+            }
+            
+            System.out.println(error);
             System.err.println("Error Number Format Exception");
             JOptionPane.showMessageDialog(null, "input erróneo", valorCelsius, JOptionPane.ERROR_MESSAGE);
 
@@ -170,6 +192,7 @@ public class Conversor extends javax.swing.JFrame {
     private javax.swing.JButton Convertir;
     private javax.swing.JTextField EntradaCelsius;
     private javax.swing.JLabel Fahrenheit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField respuesta;
     // End of variables declaration//GEN-END:variables
 }
