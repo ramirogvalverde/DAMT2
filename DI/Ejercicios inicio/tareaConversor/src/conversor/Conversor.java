@@ -5,6 +5,7 @@
 package conversor;
 
 import java.awt.Point;
+import static java.awt.event.KeyEvent.VK_ENTER;
 import javax.net.ssl.SSLEngineResult;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -41,6 +42,8 @@ public class Conversor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor C a F");
+        setBounds(new java.awt.Rectangle(0, 0, 230, 200));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(230, 200));
         setMinimumSize(new java.awt.Dimension(230, 200));
         setResizable(false);
@@ -49,9 +52,17 @@ public class Conversor extends javax.swing.JFrame {
 
         Background.setBackground(new java.awt.Color(153, 204, 255));
         Background.setForeground(new java.awt.Color(153, 204, 255));
+        Background.setMaximumSize(new java.awt.Dimension(230, 200));
+        Background.setMinimumSize(new java.awt.Dimension(230, 200));
         Background.setPreferredSize(new java.awt.Dimension(230, 200));
 
         EntradaCelsius.setBackground(new java.awt.Color(255, 255, 255));
+        EntradaCelsius.setMaximumSize(new java.awt.Dimension(64, 22));
+        EntradaCelsius.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EntradaCelsiusKeyPressed(evt);
+            }
+        });
 
         Celsius.setForeground(new java.awt.Color(0, 0, 0));
         Celsius.setText("º C");
@@ -87,7 +98,7 @@ public class Conversor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(respuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                     .addComponent(Convertir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -104,17 +115,17 @@ public class Conversor extends javax.swing.JFrame {
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaCelsius)
+                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Celsius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(respuesta)
                     .addComponent(Fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(Convertir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Convertir, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                 .addGap(69, 69, 69))
         );
 
@@ -155,19 +166,30 @@ public class Conversor extends javax.swing.JFrame {
             
             if(e.getMessage().contains("empty")){
             dialog.setVisible(true);
+            respuesta.setText("");
+            EntradaCelsius.requestFocus();
            
             }else if(e.getMessage().contains(",")){
             dialog2.setVisible(true);
+            respuesta.setText("");
             EntradaCelsius.setText(null);
-            }
-            System.err.println("Error Number Format Exception");
+            EntradaCelsius.requestFocus();
+            }else{
             dialog3.setVisible(true);
+            respuesta.setText("");
             EntradaCelsius.setText(null);
+            EntradaCelsius.requestFocus();
+            }
             //System.out.println(error);
             
             
         }
     }//GEN-LAST:event_ConvertirActionPerformed
+
+    private void EntradaCelsiusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EntradaCelsiusKeyPressed
+        if (evt.getExtendedKeyCode()==VK_ENTER) Convertir.doClick();
+        if (evt.getExtendedKeyCode()==27) System.exit(0);
+    }//GEN-LAST:event_EntradaCelsiusKeyPressed
 
     /**
      * @param args the command line arguments
