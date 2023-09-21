@@ -161,19 +161,19 @@ public class Conversor extends javax.swing.JFrame {
             JDialog dialog3 = jop3.createDialog("ERROR");
             dialog3.setLocation(Background.getLocationOnScreen().x + 300,Background.getLocationOnScreen().y);
             
-            if(e.getMessage().contains("empty")){
-            dialog.setVisible(true);
+            if(e.getMessage().contains("empty")){            
             EntradaFahrenheit.setText("");
+            dialog.setVisible(true);
             EntradaCelsius.requestFocus();
            
-            }else if(e.getMessage().contains(",")){
-            dialog2.setVisible(true);
+            }else if(e.getMessage().contains(",")){            
             EntradaFahrenheit.setText("");
+            dialog2.setVisible(true);
             EntradaCelsius.setText(null);
             EntradaCelsius.requestFocus();
-            }else{
-            dialog3.setVisible(true);
+            }else{           
             EntradaFahrenheit.setText("");
+            dialog3.setVisible(true);
             EntradaCelsius.setText(null);
             EntradaCelsius.requestFocus();
             }
