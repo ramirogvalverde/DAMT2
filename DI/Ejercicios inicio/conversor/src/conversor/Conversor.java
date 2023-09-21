@@ -49,17 +49,11 @@ public class Conversor extends javax.swing.JFrame {
             }
         });
 
-        Celsius.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Celsius.setForeground(new java.awt.Color(0, 0, 0));
         Celsius.setText("ºC");
 
-        Fahrenheit.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Fahrenheit.setForeground(new java.awt.Color(0, 0, 0));
         Fahrenheit.setText("ºF");
 
         Convertir.setBackground(new java.awt.Color(255, 204, 204));
-        Convertir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        Convertir.setForeground(new java.awt.Color(0, 0, 0));
         Convertir.setText("CONVERTIR");
         Convertir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,8 +65,6 @@ public class Conversor extends javax.swing.JFrame {
         EntradaFahrenheit.setFocusable(false);
 
         limpiar.setBackground(new java.awt.Color(204, 255, 204));
-        limpiar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        limpiar.setForeground(new java.awt.Color(0, 0, 0));
         limpiar.setText("LIMPIAR");
         limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,21 +76,22 @@ public class Conversor extends javax.swing.JFrame {
         Background.setLayout(BackgroundLayout);
         BackgroundLayout.setHorizontalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(EntradaCelsius, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                    .addComponent(EntradaFahrenheit, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(limpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Convertir, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(9, 9, 9)))
+                    .addComponent(limpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Convertir, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(EntradaCelsius)
+                    .addComponent(EntradaFahrenheit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Celsius, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(Fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(53, 53, 53))
+                    .addComponent(Celsius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Fahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
