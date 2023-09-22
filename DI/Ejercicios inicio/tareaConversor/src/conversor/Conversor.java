@@ -43,7 +43,6 @@ public class Conversor extends javax.swing.JFrame {
         setTitle("Conversor C a F");
         setBounds(new java.awt.Rectangle(0, 0, 230, 200));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(230, 200));
         setMinimumSize(new java.awt.Dimension(230, 200));
         setResizable(false);
         setSize(new java.awt.Dimension(230, 200));
@@ -55,7 +54,6 @@ public class Conversor extends javax.swing.JFrame {
         Background.setMinimumSize(new java.awt.Dimension(230, 200));
         Background.setPreferredSize(new java.awt.Dimension(230, 200));
 
-        EntradaCelsius.setBackground(new java.awt.Color(255, 255, 255));
         EntradaCelsius.setMaximumSize(new java.awt.Dimension(64, 22));
         EntradaCelsius.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -63,15 +61,12 @@ public class Conversor extends javax.swing.JFrame {
             }
         });
 
-        Celsius.setForeground(new java.awt.Color(0, 0, 0));
         Celsius.setText("º C");
 
-        Fahrenheit.setForeground(new java.awt.Color(0, 0, 0));
         Fahrenheit.setText("º F");
 
         Convertir.setBackground(new java.awt.Color(102, 255, 0));
         Convertir.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        Convertir.setForeground(new java.awt.Color(0, 0, 0));
         Convertir.setText("Convertir");
         Convertir.setAlignmentY(0.0F);
         Convertir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -79,19 +74,16 @@ public class Conversor extends javax.swing.JFrame {
         Convertir.setMaximumSize(new java.awt.Dimension(82, 22));
         Convertir.setMinimumSize(new java.awt.Dimension(82, 22));
         Convertir.setPreferredSize(new java.awt.Dimension(88, 22));
-        Convertir.setSize(new java.awt.Dimension(88, 22));
         Convertir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConvertirActionPerformed(evt);
             }
         });
 
-        respuesta.setBackground(new java.awt.Color(255, 255, 255));
         respuesta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         respuesta.setFocusable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Conversor");
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
@@ -170,9 +162,9 @@ public class Conversor extends javax.swing.JFrame {
             dialog3.setLocation(Background.getLocationOnScreen().x + 300,Background.getLocationOnScreen().y);
             
             if(e.getMessage().contains("empty")){
-                respuesta.setText("");
+                //respuesta.setText("");
                 dialog.setVisible(true);               
-                EntradaCelsius.requestFocus();           
+               // EntradaCelsius.requestFocus();           
             }else if(e.getMessage().contains(",")){           
                 respuesta.setText("");
                 dialog2.setVisible(true);
@@ -184,7 +176,7 @@ public class Conversor extends javax.swing.JFrame {
                 EntradaCelsius.setText(null);
                 EntradaCelsius.requestFocus();
             }
-            //System.out.println(error);
+            System.out.println(error);
             
             
         }
