@@ -4,6 +4,11 @@
  */
 package tareasaludador;
 
+import static java.awt.event.KeyEvent.VK_ENTER;
+import static java.awt.event.KeyEvent.VK_ESCAPE;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author damt210
@@ -15,6 +20,7 @@ public class TareaSaludador extends javax.swing.JFrame {
      */
     public TareaSaludador() {
         initComponents();
+
     }
 
     /**
@@ -26,22 +32,78 @@ public class TareaSaludador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(0, 0));
+        jPanel1 = new javax.swing.JPanel();
+        jLabelInstruccion = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jButtonSaludar = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tarea 1_2_Saludador_Ramiro_Gutierrez_Valverde");
+        setLocation(new java.awt.Point(0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelInstruccion.setText("Escribe un nombre al que saludar");
+        jPanel1.add(jLabelInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 260, -1));
+
+        jButtonSaludar.setText("¡Saludar!");
+        jButtonSaludar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaludarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonSaludar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSaludarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaludarActionPerformed
+        String nombre, textoMensaje;
+        nombre = jTextFieldNombre.getText();
+
+        if (nombre.matches("(.*\\d.*)")) {
+            textoMensaje = ("Debes introducir un nombre");
+            JOptionPane jop3 = new JOptionPane(textoMensaje, JOptionPane.ERROR_MESSAGE);
+            JDialog dialog3 = jop3.createDialog("ERROR");
+            dialog3.setLocationRelativeTo(null);
+            jTextFieldNombre.setText(null);           
+            dialog3.setVisible(true);
+            jTextFieldNombre.requestFocus();
+        } else if (nombre.matches("\\s*")){
+            textoMensaje = ("Debes introducir un nombre");
+            JOptionPane jop2 = new JOptionPane(textoMensaje, JOptionPane.ERROR_MESSAGE);
+            JDialog dialog2 = jop2.createDialog("ERROR");
+            dialog2.setLocationRelativeTo(null);
+            jTextFieldNombre.setText(null);
+            dialog2.setVisible(true);
+            jTextFieldNombre.requestFocus();
+        } else {         
+            textoMensaje = ("¡Hola " + nombre + "!");
+            JOptionPane jop = new JOptionPane(textoMensaje, JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = jop.createDialog("Message");
+            dialog.setLocationRelativeTo(null);
+            jTextFieldNombre.setText(null);
+            dialog.setVisible(true);
+            jTextFieldNombre.requestFocus();
+
+        }
+
+    }//GEN-LAST:event_jButtonSaludarActionPerformed
+
+    private void jTextFieldNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyPressed
+        if (evt.getExtendedKeyCode()==VK_ENTER) jButtonSaludar.doClick();
+        if (evt.getExtendedKeyCode()==VK_ESCAPE) System.exit(0);
+    }//GEN-LAST:event_jTextFieldNombreKeyPressed
 
     /**
      * @param args the command line arguments
@@ -79,5 +141,9 @@ public class TareaSaludador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSaludar;
+    private javax.swing.JLabel jLabelInstruccion;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
