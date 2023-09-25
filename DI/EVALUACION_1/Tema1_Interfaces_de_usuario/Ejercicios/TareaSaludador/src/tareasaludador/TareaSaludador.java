@@ -79,7 +79,7 @@ public class TareaSaludador extends javax.swing.JFrame {
             jTextFieldNombre.setText(null);           
             dialog3.setVisible(true);
             jTextFieldNombre.requestFocus();
-        } else if (nombre.matches("\\s*")){
+        } else if (nombre.isBlank()){
             textoMensaje = ("Debes introducir un nombre");
             JOptionPane jop2 = new JOptionPane(textoMensaje, JOptionPane.ERROR_MESSAGE);
             JDialog dialog2 = jop2.createDialog("ERROR");
