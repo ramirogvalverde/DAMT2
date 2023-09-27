@@ -1,0 +1,12 @@
+X 27/9
+
+	video de java nio:
+	https://www.youtube.com/watch?v=s8Ea7478mmA
+
+	nos va a buscar las presentaciones del video para pasárnoslas.
+
+	repasamos archivo de bases de datos (en los apuntes)
+
+	mañana haremos el modelo vista controlador (MVC)
+
+
