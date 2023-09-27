@@ -4,7 +4,10 @@
  */
 package tareapeliculas;
 
+import static java.awt.event.KeyEvent.VK_ENTER;
+import static java.awt.event.KeyEvent.VK_ESCAPE;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +45,13 @@ public class TareaPeliculas extends javax.swing.JFrame {
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTitulo.setText("TOP 10 películas de la historia");
-        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 170, 20));
+        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 220, 20));
+
+        jTextFieldIntroTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldIntroTextoKeyPressed(evt);
+            }
+        });
         jPanelFondo.add(jTextFieldIntroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, -1));
 
         jButtonAñadir.setText("Añadir");
@@ -67,23 +76,31 @@ public class TareaPeliculas extends javax.swing.JFrame {
     
     private void jButtonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirActionPerformed
         
-        if(peliculas.size()<=10){
+        if(peliculas.size()<=9){
             String titulo=jTextFieldIntroTexto.getText();
             if(titulo.isBlank()){
-                
+                JOptionPane.showMessageDialog(null,"Debe escribir un título válido", "Error", JOptionPane.ERROR_MESSAGE);
             }else if(peliculas.contains(titulo)){
-                
+                JOptionPane.showMessageDialog(null, "El título ya aparece en la lista","Error", JOptionPane.ERROR_MESSAGE);
             }else{
+                JOptionPane.showMessageDialog(null, "Película añadida con éxito","Message", JOptionPane.INFORMATION_MESSAGE);
                 peliculas.add(titulo);
                 jComboBox.addItem(titulo);
             
         }
                 
         }else{
-            
+            JOptionPane.showMessageDialog(null,"Ha alcanzado el número máximo de películas", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        jTextFieldIntroTexto.setText(null);
+        jTextFieldIntroTexto.requestFocus();
         
     }//GEN-LAST:event_jButtonAñadirActionPerformed
+
+    private void jTextFieldIntroTextoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIntroTextoKeyPressed
+        if (evt.getExtendedKeyCode()==VK_ENTER) jButtonAñadir.doClick();
+        if (evt.getExtendedKeyCode()==VK_ESCAPE) System.exit(0);
+    }//GEN-LAST:event_jTextFieldIntroTextoKeyPressed
 
     /**
      * @param args the command line arguments
