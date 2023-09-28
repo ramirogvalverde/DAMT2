@@ -7,7 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.Suma;
+import modelo.*;
 import vista.JFsuma;
 
 /**
@@ -38,7 +38,13 @@ public class ControladorSuma implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
+        if(e.getActionCommand().equalsIgnoreCase("SUMAR")){sumar();}
+        else{limpiar();}
+
+    }
+    
+    private void sumar(){
+      try {
             int numero1 = Integer.parseInt(vista.jTnum1.getText());
             int numero2 = Integer.parseInt(vista.jTnum2.getText());
 
@@ -49,13 +55,15 @@ public class ControladorSuma implements ActionListener {
 
             vista.jTresultado.setText("" + resultado);
             // vista.jTextResultado.setText(String.valueOf(resultado));
+            Operaciones.save("resultados.txt" ,numero1,numero2, resultado);
+            
+            
         } catch (NumberFormatException ex) {
             System.err.println("Error de formato. " + ex.getMessage());
             vista.jTnum1.setText("");
             vista.jTnum2.setText("");
             vista.jTresultado.setText("Debes escribir dos números enteros.");
-        }
-
+        }  
     }
 
     private void limpiar() {

@@ -42,7 +42,6 @@ public class TareaPeliculas extends javax.swing.JFrame {
         setTitle("1_3_Películas_Ramiro_Gutierrez_Valverde");
         setBounds(new java.awt.Rectangle(0, 25, 600, 450));
         setMinimumSize(new java.awt.Dimension(600, 450));
-        setPreferredSize(new java.awt.Dimension(600, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelFondo.setMinimumSize(new java.awt.Dimension(600, 450));
