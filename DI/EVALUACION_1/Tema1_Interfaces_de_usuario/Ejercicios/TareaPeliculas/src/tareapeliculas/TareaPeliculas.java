@@ -36,23 +36,30 @@ public class TareaPeliculas extends javax.swing.JFrame {
         jTextFieldIntroTexto = new javax.swing.JTextField();
         jButtonAñadir = new javax.swing.JButton();
         jComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelFoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("1_3_Películas_Ramiro_Gutierrez_Valverde");
+        setBounds(new java.awt.Rectangle(0, 25, 600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanelFondo.setMinimumSize(new java.awt.Dimension(600, 450));
+        jPanelFondo.setPreferredSize(new java.awt.Dimension(600, 450));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabelTitulo.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("TOP 10 películas de la historia");
-        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 220, 20));
+        jPanelFondo.add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 600, 20));
 
         jTextFieldIntroTexto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldIntroTextoKeyPressed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldIntroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, -1));
+        jPanelFondo.add(jTextFieldIntroTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 300, -1));
 
         jButtonAñadir.setText("Añadir");
         jButtonAñadir.addActionListener(new java.awt.event.ActionListener() {
@@ -60,14 +67,24 @@ public class TareaPeliculas extends javax.swing.JFrame {
                 jButtonAñadirActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanelFondo.add(jButtonAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
-        jPanelFondo.add(jComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 170, -1));
+        jComboBox.setMaximumRowCount(10);
+        jComboBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBoxKeyPressed(evt);
+            }
+        });
+        jPanelFondo.add(jComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 380, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Hollywood.jpg"))); // NOI18N
-        jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 400, 230));
+        jLabelFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Hollywood.jpg"))); // NOI18N
+        jLabelFoto.setMaximumSize(new java.awt.Dimension(600, 350));
+        jLabelFoto.setMinimumSize(new java.awt.Dimension(600, 350));
+        jLabelFoto.setPreferredSize(new java.awt.Dimension(600, 350));
+        jPanelFondo.add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
-        getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 360));
+        getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,18 +96,18 @@ public class TareaPeliculas extends javax.swing.JFrame {
         if(peliculas.size()<=9){
             String titulo=jTextFieldIntroTexto.getText();
             if(titulo.isBlank()){
-                JOptionPane.showMessageDialog(null,"Debe escribir un título válido", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelFondo,"Debe escribir un título válido", "Error", JOptionPane.ERROR_MESSAGE);
             }else if(peliculas.contains(titulo)){
-                JOptionPane.showMessageDialog(null, "El título ya aparece en la lista","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelFondo, "El título ya aparece en la lista","Error", JOptionPane.ERROR_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(null, "Película añadida con éxito","Message", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(jPanelFondo, "Película añadida con éxito","Message", JOptionPane.INFORMATION_MESSAGE);
                 peliculas.add(titulo);
                 jComboBox.addItem(titulo);
             
         }
                 
         }else{
-            JOptionPane.showMessageDialog(null,"Ha alcanzado el número máximo de películas", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jPanelFondo,"Ha alcanzado el número máximo de películas", "Error", JOptionPane.ERROR_MESSAGE);
         }
         jTextFieldIntroTexto.setText(null);
         jTextFieldIntroTexto.requestFocus();
@@ -101,6 +118,10 @@ public class TareaPeliculas extends javax.swing.JFrame {
         if (evt.getExtendedKeyCode()==VK_ENTER) jButtonAñadir.doClick();
         if (evt.getExtendedKeyCode()==VK_ESCAPE) System.exit(0);
     }//GEN-LAST:event_jTextFieldIntroTextoKeyPressed
+
+    private void jComboBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxKeyPressed
+        if (evt.getExtendedKeyCode()==VK_ESCAPE) System.exit(0);
+    }//GEN-LAST:event_jComboBoxKeyPressed
 
     /**
      * @param args the command line arguments
@@ -140,7 +161,7 @@ public class TareaPeliculas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAñadir;
     private javax.swing.JComboBox<String> jComboBox;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFoto;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JTextField jTextFieldIntroTexto;
