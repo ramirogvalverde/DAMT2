@@ -5,8 +5,12 @@ X 27/9
 
 	nos va a buscar las presentaciones del video para pasárnoslas.
 
-	repasamos archivo de bases de datos (en los apuntes)
+	repasamos archivo de bases de datos (en los apuntes: Tema 1. Almacenamiento de datos)
 
 	mañana haremos el modelo vista controlador (MVC)
+
+	trabajamos el MVC, modelo vista controlador con un código que nos pasa de una calculadora que tenemos que modificar
+
+	nos manda tarea hoja 3sobre lo anterior.
 
 
