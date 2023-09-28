@@ -18,6 +18,6 @@ public class Ejercicio1 {
             Process p = rt.exec(comando);
         } catch (IOException ex) {
             System.out.println("Ha ocurrido una excepción");
-        };
+        }
     }
 }
