@@ -49,4 +49,22 @@ public class ballMovement : MonoBehaviour
         ballBody.velocity = new Vector2(xSpeed, ySpeed) * speed;
 
     }
+
+    //Triggers
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag=="leftgoal")
+        {
+
+        }
+        else if (collision.gameObject.tag == "rightgoal")
+        {
+
+        }
+
+    }
+    
+
+
 }
