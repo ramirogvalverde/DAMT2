@@ -28,76 +28,95 @@ public class MiniEncuesta extends javax.swing.JFrame {
 
         RadioSistema = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelSistema = new javax.swing.JLabel();
+        jRadioButtonWindows = new javax.swing.JRadioButton();
+        jRadioButtonMacOs = new javax.swing.JRadioButton();
+        jRadioButtonLinux = new javax.swing.JRadioButton();
+        jRadioButtonUbuntu = new javax.swing.JRadioButton();
+        jRadioButtonOtros = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelEspecializacion = new javax.swing.JLabel();
+        jCheckBoxProgramacion = new javax.swing.JCheckBox();
+        jCheckBoxDisenoGrafico = new javax.swing.JCheckBox();
+        jCheckBoxAdministracion = new javax.swing.JCheckBox();
+        jLabelHoras = new javax.swing.JLabel();
         JLabelNumeroHoras = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
+        jSlider = new javax.swing.JSlider();
+        jButtonGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("1_4_MiniEncuesta_Ramiro_Gutierrez_Valverde");
-        setPreferredSize(new java.awt.Dimension(450, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setMinimumSize(new java.awt.Dimension(450, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(450, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Horas de Uso o Visualización de Pantallas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 260, 40));
+        jLabelSistema.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSistema.setText("Elige tu sistema operativo");
+        jLabelSistema.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelSistema.setMaximumSize(new java.awt.Dimension(260, 30));
+        jLabelSistema.setMinimumSize(new java.awt.Dimension(260, 30));
+        jLabelSistema.setPreferredSize(new java.awt.Dimension(260, 30));
+        jPanel1.add(jLabelSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 260, 30));
 
-        jLabel2.setText("Elige tu sistema operativo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 260, 40));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 320, 20));
+        RadioSistema.add(jRadioButtonWindows);
+        jRadioButtonWindows.setText("Windows");
+        jPanel1.add(jRadioButtonWindows, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        RadioSistema.add(jRadioButton1);
-        jRadioButton1.setText("Windows");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        RadioSistema.add(jRadioButtonMacOs);
+        jRadioButtonMacOs.setText("MacOs");
+        jPanel1.add(jRadioButtonMacOs, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
-        RadioSistema.add(jRadioButton2);
-        jRadioButton2.setText("MacOs");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        RadioSistema.add(jRadioButtonLinux);
+        jRadioButtonLinux.setText("Linux");
+        jPanel1.add(jRadioButtonLinux, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        RadioSistema.add(jRadioButton3);
-        jRadioButton3.setText("Linux");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        RadioSistema.add(jRadioButtonUbuntu);
+        jRadioButtonUbuntu.setText("Ubuntu");
+        jPanel1.add(jRadioButtonUbuntu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
-        RadioSistema.add(jRadioButton4);
-        jRadioButton4.setText("Ubuntu");
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        RadioSistema.add(jRadioButtonOtros);
+        jRadioButtonOtros.setText("Otros");
+        jPanel1.add(jRadioButtonOtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 320, 20));
 
-        RadioSistema.add(jRadioButton5);
-        jRadioButton5.setText("Otros");
-        jPanel1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jLabelEspecializacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEspecializacion.setText("Elige tu campo de especialización");
+        jLabelEspecializacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelEspecializacion.setMaximumSize(new java.awt.Dimension(260, 30));
+        jLabelEspecializacion.setMinimumSize(new java.awt.Dimension(260, 30));
+        jLabelEspecializacion.setPreferredSize(new java.awt.Dimension(260, 30));
+        jPanel1.add(jLabelEspecializacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 260, 30));
 
-        jCheckBox1.setText("jCheckBox1");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        jCheckBoxProgramacion.setText("Programación");
+        jPanel1.add(jCheckBoxProgramacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
-        jCheckBox2.setText("jCheckBox2");
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+        jCheckBoxDisenoGrafico.setText("Diseño Gráfico");
+        jPanel1.add(jCheckBoxDisenoGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
-        jCheckBox3.setText("jCheckBox3");
-        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+        jCheckBoxAdministracion.setText("Administración");
+        jPanel1.add(jCheckBoxAdministracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
 
-        jLabel3.setText("Elige tu campo de especialización");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 260, 40));
+        jLabelHoras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelHoras.setText("Horas de Uso o Visualización de Pantallas");
+        jLabelHoras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelHoras.setMaximumSize(new java.awt.Dimension(260, 30));
+        jLabelHoras.setMinimumSize(new java.awt.Dimension(260, 30));
+        jLabelHoras.setPreferredSize(new java.awt.Dimension(260, 30));
+        jPanel1.add(jLabelHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 260, 30));
 
-        JLabelNumeroHoras.setPreferredSize(new java.awt.Dimension(42, 15));
-        jPanel1.add(JLabelNumeroHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
+        JLabelNumeroHoras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelNumeroHoras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        JLabelNumeroHoras.setPreferredSize(new java.awt.Dimension(42, 30));
+        jPanel1.add(JLabelNumeroHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, 30));
 
-        jButton1.setText("Generar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 290, -1));
-        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, -1));
+        jSlider.setMinorTickSpacing(1);
+        jPanel1.add(jSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 200, -1));
+
+        jButtonGenerar.setText("Generar");
+        jButtonGenerar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jButtonGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 140, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 600));
 
@@ -142,20 +161,20 @@ public class MiniEncuesta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabelNumeroHoras;
     private javax.swing.ButtonGroup RadioSistema;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButtonGenerar;
+    private javax.swing.JCheckBox jCheckBoxAdministracion;
+    private javax.swing.JCheckBox jCheckBoxDisenoGrafico;
+    private javax.swing.JCheckBox jCheckBoxProgramacion;
+    private javax.swing.JLabel jLabelEspecializacion;
+    private javax.swing.JLabel jLabelHoras;
+    private javax.swing.JLabel jLabelSistema;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButtonLinux;
+    private javax.swing.JRadioButton jRadioButtonMacOs;
+    private javax.swing.JRadioButton jRadioButtonOtros;
+    private javax.swing.JRadioButton jRadioButtonUbuntu;
+    private javax.swing.JRadioButton jRadioButtonWindows;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider;
     // End of variables declaration//GEN-END:variables
 }
