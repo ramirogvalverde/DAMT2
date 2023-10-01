@@ -4,6 +4,9 @@
  */
 package miniEncuesta;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ramiro
@@ -107,21 +110,108 @@ public class MiniEncuesta extends javax.swing.JFrame {
         jPanel1.add(jLabelHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 260, 30));
 
         JLabelNumeroHoras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelNumeroHoras.setText("12");
         JLabelNumeroHoras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         JLabelNumeroHoras.setPreferredSize(new java.awt.Dimension(42, 30));
-        jPanel1.add(JLabelNumeroHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, 30));
+        jPanel1.add(JLabelNumeroHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, 30));
 
+        jSlider.setMajorTickSpacing(1);
+        jSlider.setMaximum(24);
         jSlider.setMinorTickSpacing(1);
+        jSlider.setPaintTicks(true);
+        jSlider.setSnapToTicks(true);
+        jSlider.setValue(12);
+        jSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderStateChanged(evt);
+            }
+        });
         jPanel1.add(jSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 200, -1));
 
         jButtonGenerar.setText("Generar");
         jButtonGenerar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGenerarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 140, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderStateChanged
+        JLabelNumeroHoras.setText(Integer.toString(jSlider.getValue()));
+    }//GEN-LAST:event_jSliderStateChanged
+
+    private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
+        
+        String radio= "No has seleccionado ningún SO";
+        if (jRadioButtonLinux.isSelected()){
+            radio= jRadioButtonLinux.getText();
+        }
+        if (jRadioButtonMacOs.isSelected()){
+            radio= jRadioButtonMacOs.getText();
+        }
+        if (jRadioButtonOtros.isSelected()){
+            radio= jRadioButtonOtros.getText();
+        }
+        if (jRadioButtonUbuntu.isSelected()){
+            radio= jRadioButtonUbuntu.getText();
+        }
+        if (jRadioButtonWindows.isSelected()){
+            radio= jRadioButtonWindows.getText();
+        }
+        
+        String esp = "No has seleccionado ninguna especialidad";
+        
+        if(jCheckBoxProgramacion.isSelected()){
+            if(esp=="No has seleccionado ninguna especialidad"){
+                esp= "\nProgramación";
+                
+            }else{
+                esp +="\nProgramacion";
+            }
+        }
+         if(jCheckBoxDisenoGrafico.isSelected()){
+            if(esp=="No has seleccionado ninguna especialidad"){
+                esp= "\nDiseño Gráfico";
+                
+            }else{
+                esp +="\nDiseño Gráfico";
+            }
+        }
+          if(jCheckBoxAdministracion.isSelected()){
+            if(esp=="No has seleccionado ninguna especialidad"){
+                esp= "\nAdministración";
+                
+            }else{
+                esp +="\n Administracion";
+            }
+        }
+        
+        
+        
+        JOptionPane jop = new JOptionPane("Sistema operativo seleccionado: " + radio + "\n"
+                + "Especialidades seleccionadas: " + esp + "\n"
+                + "Nº de horas dedicadas: " + jSlider.getValue(), JOptionPane.INFORMATION_MESSAGE);
+        JDialog jd = jop.createDialog("Muestra de datos");
+        jd.setLocationRelativeTo(jPanel1);
+        jd.setVisible(true);
+        
+        RadioSistema.clearSelection();
+
+ 
+
+        jCheckBoxAdministracion.setSelected(false);
+        jCheckBoxDisenoGrafico.setSelected(false);
+        jCheckBoxProgramacion.setSelected(false);
+
+        jSlider.setValue(12);
+        
+    }//GEN-LAST:event_jButtonGenerarActionPerformed
 
     /**
      * @param args the command line arguments

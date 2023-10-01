@@ -9,6 +9,9 @@ public class ballMovement : MonoBehaviour
     private float speed = 4f;
     [SerializeField]
     private Rigidbody2D ballBody;
+    [SerializeField]
+    private GameManager gameManager;
+    float speedRise = 1.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -56,15 +59,26 @@ public class ballMovement : MonoBehaviour
     {
         if(collision.gameObject.tag=="leftgoal")
         {
-
+            
+            gameManager.scoredGoalA();
         }
         else if (collision.gameObject.tag == "rightgoal")
         {
-
+            
+            gameManager.scoredGoalB();
         }
 
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision2)
+    {
+        if(collision2.gameObject.tag.Contains("Paddle"))
+        {
+            ballBody.velocity *= speedRise;
+
+        }
+    }
+
 
 
 }
