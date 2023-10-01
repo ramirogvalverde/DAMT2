@@ -1,6 +1,9 @@
 
 package ficherosHoja3;
 
+import controlador.*;
+import modelo.*;
+import vista.*;
 /**
  *
  * @author Ramiro
@@ -13,7 +16,10 @@ public class FicherosHoja3 {
      */
     public static void main(String[] args) {
         
-        
+        Producto modelo =new Producto();
+        Ventana vista = new Ventana();
+        ControladorProducto controlador = new ControladorProducto(vista, modelo);
+        controlador.iniciar();
         
     }
     

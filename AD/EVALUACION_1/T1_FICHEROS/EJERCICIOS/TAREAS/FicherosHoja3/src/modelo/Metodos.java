@@ -1,5 +1,6 @@
 
 package modelo;
+import javax.swing.JTextField;
 
 /**
  *
@@ -8,11 +9,11 @@ package modelo;
  */
 public class Metodos {
     
-    public static void insertarProducto(){
+    private void insertarProducto(){
         
     }
     
-    public static void listarProductos(){
+    private void listarProductos(){
         
     }
     

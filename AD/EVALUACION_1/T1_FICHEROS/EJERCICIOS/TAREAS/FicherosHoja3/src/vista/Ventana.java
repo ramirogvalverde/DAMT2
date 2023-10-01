@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
+
+import modelo.Metodos;
 
 /**
  *
- * @author damt210
+ * @author Ramiro
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -27,40 +26,58 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelFondo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jLabelPrecio = new javax.swing.JLabel();
+        jTextFieldPrecio = new javax.swing.JTextField();
+        jButtonGuardar = new javax.swing.JButton();
         JButtonCancelar = new javax.swing.JButton();
         jButtonListado = new javax.swing.JButton();
-        jButtonGuardar = new javax.swing.JButton();
-        jTextFieldPrecio = new javax.swing.JTextField();
-        jTextFieldNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("NOMBRE");
-        jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 60, 20));
+        jLabelNombre.setText("NOMBRE");
+        jPanelFondo.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 60, 20));
+        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 210, -1));
 
-        jLabel2.setText("PRECIO");
-        jPanelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 60, 20));
-
-        JButtonCancelar.setText("CANCELAR");
-        jPanelFondo.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 110, -1));
-
-        jButtonListado.setText("LISTADO");
-        jPanelFondo.add(jButtonListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 110, 40));
+        jLabelPrecio.setText("PRECIO");
+        jPanelFondo.add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 60, 20));
+        jPanelFondo.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 210, -1));
 
         jButtonGuardar.setText("GUARDAR");
         jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 110, 70));
-        jPanelFondo.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 210, -1));
-        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 210, -1));
+
+        JButtonCancelar.setText("CANCELAR");
+        JButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 110, -1));
+
+        jButtonListado.setText("LISTADO");
+        jButtonListado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListadoActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 110, 40));
 
         getContentPane().add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListadoActionPerformed
+
+    }//GEN-LAST:event_jButtonListadoActionPerformed
+
+    private void JButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,10 +118,10 @@ public class Ventana extends javax.swing.JFrame {
     public javax.swing.JButton JButtonCancelar;
     public javax.swing.JButton jButtonGuardar;
     public javax.swing.JButton jButtonListado;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelNombre;
+    public javax.swing.JLabel jLabelPrecio;
     private javax.swing.JPanel jPanelFondo;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldPrecio;
+    public javax.swing.JTextField jTextFieldNombre;
+    public javax.swing.JTextField jTextFieldPrecio;
     // End of variables declaration//GEN-END:variables
 }
