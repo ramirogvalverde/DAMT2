@@ -50,15 +50,19 @@ public class ControladorProducto implements ActionListener {
     }
 
     public void guardar() {
-        LinkedList<Producto> lista = new LinkedList();
-        Producto producto1 = new Producto(vista.jTextFieldNombre.getText(), Double.parseDouble(vista.jTextFieldPrecio.getText()));
+        
+        Producto producto1 =null;
         //lista.add(producto1);
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
 
         try {
+            LinkedList<Producto> lista = new LinkedList();
+            
             fos = new FileOutputStream("productos.dat");
             oos = new ObjectOutputStream(fos);
+            
+            producto1 = new Producto(vista.jTextFieldNombre.getText(), Double.parseDouble(vista.jTextFieldPrecio.getText()));
 
             oos.writeObject(producto1);
 
@@ -84,24 +88,24 @@ public class ControladorProducto implements ActionListener {
     }
 
     public void listar() {
-        LinkedList<Producto> lista2 = new LinkedList();
+        
         Producto producto2 = null;
-        //lista.add(producto1);
+  
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
         try {
+            LinkedList<Producto> lista2 = new LinkedList();
             fis = new FileInputStream("productos.dat");
             ois = new ObjectInputStream(fis);
 
-            while (true) {
+            while (fis.available() > 0) {
                 producto2 = (Producto) ois.readObject();
                 lista2.add(producto2);
+            }
+            for (Producto p : lista2) {
 
-                for (Producto p : lista2) {
-
-                    System.out.println("Nombre :" + p.getNombre() + ". Precio: " + p.getPrecio());
-                }
+                System.out.println("Nombre :" + p.getNombre() + ". Precio: " + p.getPrecio());
             }
 
         } catch (FileNotFoundException ex) {
