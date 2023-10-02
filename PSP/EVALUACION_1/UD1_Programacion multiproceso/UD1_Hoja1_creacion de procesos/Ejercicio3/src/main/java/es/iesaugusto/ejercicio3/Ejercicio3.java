@@ -22,8 +22,6 @@ números aleatorios entre el 0 y el 9. ¿qué ocurre y por qué?*/
             
             Process p = rt.exec(comando);
             
-            p.
-            
             for (int i = 0; i < 10; i++) {
                 System.out.println((int)(Math.random()*9));
             }
