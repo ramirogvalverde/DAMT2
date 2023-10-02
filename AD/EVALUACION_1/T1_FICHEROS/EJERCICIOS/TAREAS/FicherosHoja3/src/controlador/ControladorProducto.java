@@ -85,9 +85,10 @@ public class ControladorProducto implements ActionListener {
         
         iniciarListado();
         
+        listado.jTableListaProductos.getModel();
         
         for (Producto producto : lista3) {
-            vista.
+          
         }
         
     }
