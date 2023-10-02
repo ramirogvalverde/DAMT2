@@ -18,7 +18,8 @@ public class FicherosHoja3 {
         
         Producto modelo =new Producto();
         Ventana vista = new Ventana();
-        ControladorProducto controlador = new ControladorProducto(vista, modelo);
+        ListadoProductos listado = new ListadoProductos();
+        ControladorProducto controlador = new ControladorProducto(vista, modelo,listado);
         controlador.iniciar();
         
     }

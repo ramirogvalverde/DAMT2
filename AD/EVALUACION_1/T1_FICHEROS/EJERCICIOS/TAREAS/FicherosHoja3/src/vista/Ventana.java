@@ -119,7 +119,7 @@ public class Ventana extends javax.swing.JFrame {
     public javax.swing.JButton jButtonGuardar;
     public javax.swing.JButton jButtonListado;
     private javax.swing.JLabel jLabelNombre;
-    public javax.swing.JLabel jLabelPrecio;
+    private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JPanel jPanelFondo;
     public javax.swing.JTextField jTextFieldNombre;
     public javax.swing.JTextField jTextFieldPrecio;
