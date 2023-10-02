@@ -3,7 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 import modelo.*;
 import vista.*;
 
@@ -42,10 +42,10 @@ public class ControladorProducto implements ActionListener {
         vista.setTitle("Almacen de productos");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        
+
     }
-    
-    public void iniciarListado(){
+
+    public void iniciarListado() {
         listado.setTitle("Listado de productos");
         listado.setLocationRelativeTo(null);
         listado.setVisible(true);
@@ -53,21 +53,20 @@ public class ControladorProducto implements ActionListener {
     }
 
     public void guardar() {
-        
+
         try {
             String nombre = (vista.jTextFieldNombre.getText());
             double precio = Double.parseDouble(vista.jTextFieldPrecio.getText());
 
             modelo.setNombre(nombre);
             modelo.setPrecio(precio);
-       
+
             Metodos.insertarProducto("productos.dat", nombre, precio);
-            
-            
+
         } catch (NumberFormatException ex) {
             System.err.println("error en el formato del número");
         }
-       
+
         cancelar();
 
     }
@@ -79,18 +78,23 @@ public class ControladorProducto implements ActionListener {
     }
 
     public void listar() {
-        
+
         ArrayList<Producto> lista3 = new ArrayList();
-        lista3= Metodos.listarProductos("productos.dat");
-        
+        lista3 = Metodos.listarProductos("productos.dat");
+        DefaultTableModel modelo = (DefaultTableModel) listado.jTableListaProductos.getModel();
         iniciarListado();
-        
-        listado.jTableListaProductos.getModel();
-        
-        for (Producto producto : lista3) {
-          
+
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
         }
-        
+
+        for (Producto i : lista3) {
+            String[] row = new String[2];
+            row[0] = i.getNombre();
+            row[1] = String.valueOf(i.getPrecio());
+            modelo.addRow(row);
+        }
+
     }
 
 }
