@@ -62,11 +62,11 @@ public class PanelReserva extends javax.swing.JDialog {
         jRadioButtonJornada = new javax.swing.JRadioButton();
         jRadioButtonSeminario = new javax.swing.JRadioButton();
         jLabelFecha = new javax.swing.JLabel();
-        jDateChooser = new com.toedter.calendar.JDateChooser();
         jLabelMaterial = new javax.swing.JLabel();
         jComboBoxMaterial = new javax.swing.JComboBox<>();
         jLabelPersonas = new javax.swing.JLabel();
         jSpinnerPersonas = new javax.swing.JSpinner();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanelOpcionesSeminario = new javax.swing.JPanel();
         jLabelJornadas = new javax.swing.JLabel();
         jSpinnerJornadas = new javax.swing.JSpinner();
@@ -174,13 +174,14 @@ public class PanelReserva extends javax.swing.JDialog {
                         .addComponent(jRadioButtonJornada)
                         .addGap(58, 58, 58)
                         .addComponent(jRadioButtonSeminario))
-                    .addComponent(jDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosReservaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jComboBoxMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addComponent(jLabelPersonas)
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinnerPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSpinnerPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
         );
         jPanelDatosReservaLayout.setVerticalGroup(
@@ -194,8 +195,8 @@ public class PanelReserva extends javax.swing.JDialog {
                     .addComponent(jRadioButtonSeminario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -230,7 +231,7 @@ public class PanelReserva extends javax.swing.JDialog {
                     .addComponent(jLabelJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinnerJornadas, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                    .addComponent(jSpinnerJornadas)
                     .addComponent(jRadioButtonHabitacionesNo)
                     .addComponent(jRadioButtonHabitacionesSi))
                 .addGap(35, 35, 35))
@@ -331,7 +332,7 @@ public class PanelReserva extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroupReserva;
     private javax.swing.JButton jButtonReservar;
     private javax.swing.JComboBox<String> jComboBoxMaterial;
-    private com.toedter.calendar.JDateChooser jDateChooser;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelHabitaciones;
     private javax.swing.JLabel jLabelJornadas;

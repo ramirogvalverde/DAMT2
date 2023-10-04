@@ -155,14 +155,15 @@
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                               <Component id="jRadioButtonSeminario" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jDateChooser" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jComboBoxMaterial" min="-2" pref="176" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="jLabelPersonas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jSpinnerPersonas" min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jDateChooser1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
@@ -180,8 +181,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabelFecha" max="32767" attributes="0"/>
-                          <Component id="jDateChooser" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabelFecha" pref="30" max="32767" attributes="0"/>
+                          <Component id="jDateChooser1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -239,8 +240,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha del Evento"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelMaterial">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pr&#xe9;stamo Material"/>
@@ -274,6 +273,8 @@
                 </Property>
               </Properties>
             </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelOpcionesSeminario">
@@ -301,7 +302,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSpinnerJornadas" alignment="0" pref="65" max="32767" attributes="0"/>
+                          <Component id="jSpinnerJornadas" alignment="0" max="32767" attributes="0"/>
                           <Component id="jRadioButtonHabitacionesNo" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButtonHabitacionesSi" min="-2" max="-2" attributes="0"/>
                       </Group>
