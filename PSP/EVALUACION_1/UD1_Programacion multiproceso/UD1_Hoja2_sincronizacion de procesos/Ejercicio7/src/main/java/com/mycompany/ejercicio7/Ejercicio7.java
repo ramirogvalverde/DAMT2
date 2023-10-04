@@ -1,0 +1,41 @@
+
+
+package com.mycompany.ejercicio7;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Ramiro
+ */
+public class Ejercicio7 {
+
+    public static void main(String[] args) {
+        /*7. Crea un programa igual el ejercicio 3, pero justo después de crear el proceso hijo el padre
+espera a que termine antes de generar los números aleatorios. ¿Qué ocurre? Por último, obtén
+el valor de salida.*/
+        
+        try {
+            Runtime rt =Runtime.getRuntime();
+            String [] comando= {"notepad.exe"};         
+            
+            Process p = rt.exec(comando);
+            try {
+                p.waitFor();
+            } catch (InterruptedException ex) {
+                System.err.println("IO Exception");
+            }
+            for (int i = 0; i < 10; i++) {
+                System.out.println((int)(Math.random()*9));
+            }
+            
+        } catch (IOException ex) {
+           System.err.println("IO Exception");
+        }
+        
+        
+        
+    }
+}
