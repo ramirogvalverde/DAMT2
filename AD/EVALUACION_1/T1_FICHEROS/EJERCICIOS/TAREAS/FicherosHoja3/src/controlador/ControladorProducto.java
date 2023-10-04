@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.*;
 import vista.*;
@@ -53,22 +54,35 @@ public class ControladorProducto implements ActionListener {
     }
 
     public void guardar() {
+        String nombre = (vista.jTextFieldNombre.getText());
+        String precio = (vista.jTextFieldPrecio.getText());
 
-        try {
-            String nombre = (vista.jTextFieldNombre.getText());
-            double precio = Double.parseDouble(vista.jTextFieldPrecio.getText());
+        if (nombre.isBlank()) {
+            JOptionPane.showMessageDialog(null, "El nombre no puede quedar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (nombre.matches(".*\\d.*")) {
+            JOptionPane.showMessageDialog(null, "El nombre no puede incluir números", "Error", JOptionPane.ERROR_MESSAGE);
 
-            modelo.setNombre(nombre);
-            modelo.setPrecio(precio);
+        } else if (precio.contains(",")) {
+            JOptionPane.showMessageDialog(null, "El precio debe tener un formato adecuado", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (String.valueOf(precio).isBlank()) {
+            JOptionPane.showMessageDialog(null, "Debes introducir un precio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (String.valueOf(precio).matches(".*[a-zA-Z].*")) {
+            JOptionPane.showMessageDialog(null, "El precio debe tener un formato adecuado", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-            Metodos.insertarProducto("productos.dat", nombre, precio);
+            try {
+                
+                modelo.setNombre(nombre);
+                modelo.setPrecio(Double.parseDouble(precio));
 
-        } catch (NumberFormatException ex) {
-            System.err.println("error en el formato del número");
+                Metodos.insertarProducto("productos.dat", nombre, Double.parseDouble(precio));
+
+            } catch (NumberFormatException ex) {
+                System.err.println("error en el formato del número");
+            }
+
+            cancelar();
         }
-
-        cancelar();
-
     }
 
     public void cancelar() {

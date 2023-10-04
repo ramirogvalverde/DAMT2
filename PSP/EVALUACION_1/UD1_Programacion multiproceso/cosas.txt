@@ -1,0 +1,5 @@
+Para que el ubuntu ejecute por consola archivos .jar:
+
+sudo apt install openjdk-17-jdk
+
+sudo apt install net-tools
