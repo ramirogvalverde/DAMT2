@@ -16,6 +16,27 @@ public class PanelReserva extends javax.swing.JDialog {
     public PanelReserva(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jPanelOpcionesSeminario.setVisible(false);
+    }
+
+    public boolean compruebaDatosPersonales() {
+        boolean fallaDatosPersonales = false;
+        if(jTextFieldNombre.getText().isBlank()||!jTextFieldTelefono.getText().matches(".*\\d.*")){
+           return true; 
+        }
+        return false;
+    }
+
+    public boolean compruebaDatosReserva() {
+        boolean fallaDatosReserva = false;
+
+        return false;
+    }
+
+    public boolean compruebaDatosSeminario() {
+        boolean fallaDatosSeminario = false;
+
+        return false;
     }
 
     /**
@@ -28,26 +49,31 @@ public class PanelReserva extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonGroupReserva = new javax.swing.ButtonGroup();
-        buttonGroupNumJornadas = new javax.swing.ButtonGroup();
+        buttonGroupHabitaciones = new javax.swing.ButtonGroup();
         jPanelfondo = new javax.swing.JPanel();
         jPanelDatosPersonales = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jLabelTelefono = new javax.swing.JLabel();
+        jTextFieldTelefono = new javax.swing.JTextField();
         jPanelDatosReserva = new javax.swing.JPanel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jLabelTipoEvento = new javax.swing.JLabel();
+        jRadioButtonBanquete = new javax.swing.JRadioButton();
+        jRadioButtonJornada = new javax.swing.JRadioButton();
+        jRadioButtonSeminario = new javax.swing.JRadioButton();
+        jLabelFecha = new javax.swing.JLabel();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
+        jLabelMaterial = new javax.swing.JLabel();
+        jComboBoxMaterial = new javax.swing.JComboBox<>();
+        jLabelPersonas = new javax.swing.JLabel();
+        jSpinnerPersonas = new javax.swing.JSpinner();
         jPanelOpcionesSeminario = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jLabelJornadas = new javax.swing.JLabel();
+        jSpinnerJornadas = new javax.swing.JSpinner();
+        jLabelHabitaciones = new javax.swing.JLabel();
+        jRadioButtonHabitacionesSi = new javax.swing.JRadioButton();
+        jRadioButtonHabitacionesNo = new javax.swing.JRadioButton();
+        jButtonReservar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,9 +83,9 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jPanelDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Datos Personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
 
-        jLabel1.setText("Nombre");
+        jLabelNombre.setText("Nombre");
 
-        jLabel2.setText("Teléfono");
+        jLabelTelefono.setText("Teléfono");
 
         javax.swing.GroupLayout jPanelDatosPersonalesLayout = new javax.swing.GroupLayout(jPanelDatosPersonales);
         jPanelDatosPersonales.setLayout(jPanelDatosPersonalesLayout);
@@ -68,12 +94,12 @@ public class PanelReserva extends javax.swing.JDialog {
             .addGroup(jPanelDatosPersonalesLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanelDatosPersonalesLayout.setVerticalGroup(
@@ -81,12 +107,12 @@ public class PanelReserva extends javax.swing.JDialog {
             .addGroup(jPanelDatosPersonalesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -94,24 +120,41 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jPanelDatosReserva.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Datos de Reserva", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
 
-        jLabel3.setText("Fecha del Evento");
+        jLabelTipoEvento.setText("Tipo de Evento");
 
-        jLabel4.setText("Préstamo Material");
+        buttonGroupReserva.add(jRadioButtonBanquete);
+        jRadioButtonBanquete.setText("Banquete");
+        jRadioButtonBanquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonBanqueteActionPerformed(evt);
+            }
+        });
 
-        jLabel5.setText("Tipo de Evento");
+        buttonGroupReserva.add(jRadioButtonJornada);
+        jRadioButtonJornada.setText("Jornada");
+        jRadioButtonJornada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonJornadaActionPerformed(evt);
+            }
+        });
 
-        buttonGroupReserva.add(jRadioButton1);
-        jRadioButton1.setText("Banquete");
+        buttonGroupReserva.add(jRadioButtonSeminario);
+        jRadioButtonSeminario.setText("Seminario");
+        jRadioButtonSeminario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonSeminarioActionPerformed(evt);
+            }
+        });
 
-        buttonGroupReserva.add(jRadioButton2);
-        jRadioButton2.setText("Jornada");
+        jLabelFecha.setText("Fecha del Evento");
 
-        buttonGroupReserva.add(jRadioButton3);
-        jRadioButton3.setText("Seminario");
+        jLabelMaterial.setText("Préstamo Material");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Proyector", "Video pantalla táctil", "Tablets", "Portátiles" }));
+        jComboBoxMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Proyector", "Video pantalla táctil", "Tablets", "Portátiles" }));
 
-        jLabel6.setText("Nº de Personas");
+        jLabelPersonas.setText("Nº de Personas");
+
+        jSpinnerPersonas.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         javax.swing.GroupLayout jPanelDatosReservaLayout = new javax.swing.GroupLayout(jPanelDatosReserva);
         jPanelDatosReserva.setLayout(jPanelDatosReservaLayout);
@@ -120,24 +163,24 @@ public class PanelReserva extends javax.swing.JDialog {
             .addGroup(jPanelDatosReservaLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTipoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDatosReservaLayout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(jRadioButtonBanquete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRadioButtonJornada)
                         .addGap(58, 58, 58)
-                        .addComponent(jRadioButton3))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelDatosReservaLayout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jRadioButtonSeminario))
+                    .addComponent(jDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosReservaLayout.createSequentialGroup()
+                        .addComponent(jComboBoxMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner1)))
+                        .addComponent(jLabelPersonas)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinnerPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(45, 45, 45))
         );
         jPanelDatosReservaLayout.setVerticalGroup(
@@ -145,20 +188,20 @@ public class PanelReserva extends javax.swing.JDialog {
             .addGroup(jPanelDatosReservaLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jLabelTipoEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButtonBanquete)
+                    .addComponent(jRadioButtonJornada)
+                    .addComponent(jRadioButtonSeminario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(jComboBox1)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSpinnerPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jComboBoxMaterial)
+                    .addComponent(jLabelMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -166,26 +209,80 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jPanelOpcionesSeminario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        jLabelJornadas.setText("Nº de jornadas");
+
+        jSpinnerJornadas.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        jLabelHabitaciones.setText("Requiere Habitaciones");
+
+        jRadioButtonHabitacionesSi.setText("Si");
+
+        jRadioButtonHabitacionesNo.setText("No");
+
         javax.swing.GroupLayout jPanelOpcionesSeminarioLayout = new javax.swing.GroupLayout(jPanelOpcionesSeminario);
         jPanelOpcionesSeminario.setLayout(jPanelOpcionesSeminarioLayout);
         jPanelOpcionesSeminarioLayout.setHorizontalGroup(
             jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(jPanelOpcionesSeminarioLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelHabitaciones)
+                    .addComponent(jLabelJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSpinnerJornadas, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                    .addComponent(jRadioButtonHabitacionesNo)
+                    .addComponent(jRadioButtonHabitacionesSi))
+                .addGap(35, 35, 35))
         );
         jPanelOpcionesSeminarioLayout.setVerticalGroup(
             jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(jPanelOpcionesSeminarioLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelOpcionesSeminarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonHabitacionesSi)
+                    .addComponent(jLabelHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButtonHabitacionesNo)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jPanelfondo.add(jPanelOpcionesSeminario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 270, -1));
+        jPanelfondo.add(jPanelOpcionesSeminario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 270, 170));
 
-        jButton1.setText("RESERVAR");
-        jPanelfondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 150, 50));
+        jButtonReservar.setText("RESERVAR");
+        jButtonReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReservarActionPerformed(evt);
+            }
+        });
+        jPanelfondo.add(jButtonReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 150, 50));
 
         getContentPane().add(jPanelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 598, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButtonBanqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonBanqueteActionPerformed
+        jPanelOpcionesSeminario.setVisible(false);
+    }//GEN-LAST:event_jRadioButtonBanqueteActionPerformed
+
+    private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
+        jPanelOpcionesSeminario.setVisible(false);
+    }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
+
+    private void jRadioButtonSeminarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSeminarioActionPerformed
+        jPanelOpcionesSeminario.setVisible(true);
+    }//GEN-LAST:event_jRadioButtonSeminarioActionPerformed
+
+    private void jButtonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservarActionPerformed
+
+
+
+    }//GEN-LAST:event_jButtonReservarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,26 +327,31 @@ public class PanelReserva extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroupNumJornadas;
+    private javax.swing.ButtonGroup buttonGroupHabitaciones;
     private javax.swing.ButtonGroup buttonGroupReserva;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButtonReservar;
+    private javax.swing.JComboBox<String> jComboBoxMaterial;
+    private com.toedter.calendar.JDateChooser jDateChooser;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelHabitaciones;
+    private javax.swing.JLabel jLabelJornadas;
+    private javax.swing.JLabel jLabelMaterial;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelPersonas;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JLabel jLabelTipoEvento;
     private javax.swing.JPanel jPanelDatosPersonales;
     private javax.swing.JPanel jPanelDatosReserva;
     private javax.swing.JPanel jPanelOpcionesSeminario;
     private javax.swing.JPanel jPanelfondo;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JRadioButton jRadioButtonBanquete;
+    private javax.swing.JRadioButton jRadioButtonHabitacionesNo;
+    private javax.swing.JRadioButton jRadioButtonHabitacionesSi;
+    private javax.swing.JRadioButton jRadioButtonJornada;
+    private javax.swing.JRadioButton jRadioButtonSeminario;
+    private javax.swing.JSpinner jSpinnerJornadas;
+    private javax.swing.JSpinner jSpinnerPersonas;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }

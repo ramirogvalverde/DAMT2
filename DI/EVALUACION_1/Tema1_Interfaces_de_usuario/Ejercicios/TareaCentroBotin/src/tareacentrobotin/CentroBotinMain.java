@@ -4,6 +4,8 @@
  */
 package tareacentrobotin;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author damt210
@@ -74,6 +76,11 @@ public class CentroBotinMain extends javax.swing.JFrame {
 
         jMenuItemReservar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemReservar.setText("Reservar");
+        jMenuItemReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemReservarActionPerformed(evt);
+            }
+        });
         jMenuArchivo.add(jMenuItemReservar);
 
         jMenuItemSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -99,6 +106,12 @@ public class CentroBotinMain extends javax.swing.JFrame {
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
+
+    private void jMenuItemReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReservarActionPerformed
+        PanelReserva pr = new PanelReserva(this, rootPaneCheckingEnabled);
+        pr.setLocationRelativeTo(null);
+        pr.setVisible(true);
+    }//GEN-LAST:event_jMenuItemReservarActionPerformed
 
     /**
      * @param args the command line arguments
