@@ -20,13 +20,13 @@ el valor de salida.*/
 
             Process p = rt.exec(comando);
 
-            int valorSalida = p.waitFor();
+            p.waitFor();
 
             for (int i = 0; i < 10; i++) {
                 System.out.println((int) (Math.random() * 9));
             }
             
-            System.out.println("Valor Salida= " + valorSalida);
+            System.out.println("Valor Salida= " + p.exitValue());
 
         } catch (IOException ex) {
             System.err.println("IO Exception");

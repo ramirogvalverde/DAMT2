@@ -22,23 +22,23 @@ public class Ejercicio8 {
             • Después de que la app se cierre, el programa espera 5 segundo y se imprimirá “Buenas
             noches amigo!”.
          */
-        ProcessBuilder pb = new ProcessBuilder(args[0]);
         
+
         try {
-            Process p = pb.start();
-            try {
-                
-                p.waitFor(10, TimeUnit.SECONDS);
-                p.destroy();
-                
-                Thread.sleep(5000);
-                System.out.println("Buenas noches amigou!!");
-                
-            } catch (InterruptedException ex) {
-                System.err.println("Interrupted Exception");
-            }
+            Runtime rt = Runtime.getRuntime();
+            Process p = rt.exec(args);
+
+            p.waitFor(10, TimeUnit.SECONDS);
+            p.destroy();
+            
+
+            Thread.sleep(5000);
+            System.out.println("Buenas noches amigou!!");
+
         } catch (IOException ex) {
             System.err.println("IO Exception");
+        } catch (InterruptedException ex) {
+            System.err.println("Interrupted Exception");
         }
 
     }
