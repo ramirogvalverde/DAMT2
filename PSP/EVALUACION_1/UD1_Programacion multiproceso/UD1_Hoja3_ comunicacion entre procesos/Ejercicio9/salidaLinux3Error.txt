@@ -1,0 +1,2 @@
+ifconfig: opción `-arrrrgggggg' no reconocida.
+ifconfig: `--help' le da información de como usar la orden.

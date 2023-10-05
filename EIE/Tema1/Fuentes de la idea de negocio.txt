@@ -1,17 +1,27 @@
 Fuentes de la idea de negocio:
 
-1. Caracteristicas personales.
+	1. Caracteristicas personales.
 
-Experiencia.
-Aficiones.
+		Experiencia.
+		Aficiones.
 
-2. Observación del entorno económico.
+	2. Observación del entorno económico.
 
-Estudio de otros mercados.
+		Estudio de otros mercados.
 
-3. Observación de tendencias.
+	3. Observación de tendencias.
 
-4. Innovación de un producto.
+	4. Innovación de un producto.
 
-Mejorar uno exitente.
-Dar un nuevo uso a los existentes.
+		Mejorar uno exitente.
+		Dar un nuevo uso a los existentes.
+
+
+Design thinking (procedimiento para crear idea de negocio):
+	Fases:
+
+	Empatizar con el cliente para conocer sus necesidades.
+	Definir la idea con las correspondientes oportunidades.
+	Constituir la idea. Darle forma. Brainstorming, pensamiento lateral, story telling.
+	Prototipar.
+	Testear.
