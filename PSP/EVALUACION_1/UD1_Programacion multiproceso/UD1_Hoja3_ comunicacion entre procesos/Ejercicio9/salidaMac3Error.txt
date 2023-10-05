@@ -1,0 +1,8 @@
+ifconfig: illegal option -- g
+usage: ifconfig [-C] [-L] interface address_family [address [dest_address]]
+                [parameters]
+       ifconfig interface create
+       ifconfig -a [-C] [-L] [-d] [-m] [-u] [-v] [address_family]
+       ifconfig -l [-d] [-u] [address_family]
+       ifconfig [-C] [-L] [-d] [-m] [-u] [-v]
+       ifconfig -X pattern [-C] [-L] [-a] [-d] [-d] [-m] [-u] [-v] [address_family]

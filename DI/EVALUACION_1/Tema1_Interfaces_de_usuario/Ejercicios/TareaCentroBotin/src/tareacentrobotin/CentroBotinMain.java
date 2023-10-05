@@ -40,6 +40,9 @@ public class CentroBotinMain extends javax.swing.JFrame {
         setTitle("Gestión de Reservas Centro Botín_Ramiro_Gutierrez_Valverde");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Fondo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButtonSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonSalir.setText("Salir");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -47,30 +50,14 @@ public class CentroBotinMain extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
+        Fondo.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 152, 51));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/centroBotin.png"))); // NOI18N
-
-        javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
-        Fondo.setLayout(FondoLayout);
-        FondoLayout.setHorizontalGroup(
-            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(320, 320, 320))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        FondoLayout.setVerticalGroup(
-            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FondoLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
+        Fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 800, 270));
 
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 580));
+
+        jMenuBar.setBorderPainted(false);
 
         jMenuArchivo.setText("Archivo");
 
@@ -109,7 +96,7 @@ public class CentroBotinMain extends javax.swing.JFrame {
 
     private void jMenuItemReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReservarActionPerformed
         PanelReserva pr = new PanelReserva(this, rootPaneCheckingEnabled);
-        pr.setLocationRelativeTo(null);
+        pr.setLocationRelativeTo(this);
         pr.setVisible(true);
     }//GEN-LAST:event_jMenuItemReservarActionPerformed
 

@@ -4,6 +4,9 @@
  */
 package tareacentrobotin;
 
+import com.toedter.calendar.JDayChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author damt210
@@ -20,7 +23,7 @@ public class PanelReserva extends javax.swing.JDialog {
     }
 
     public boolean compruebaDatosPersonales() {
-        boolean fallaDatosPersonales = false;
+        
         if(jTextFieldNombre.getText().isBlank()||!jTextFieldTelefono.getText().matches(".*\\d.*")){
            return true; 
         }
@@ -28,13 +31,32 @@ public class PanelReserva extends javax.swing.JDialog {
     }
 
     public boolean compruebaDatosReserva() {
-        boolean fallaDatosReserva = false;
-
+        if(!jRadioButtonBanquete.isSelected()&&!jRadioButtonJornada.isSelected()&&!jRadioButtonSeminario.isSelected()){
+            //System.out.println("1");
+            return true;
+        }else if(jDateChooser1.getDate()==null){
+            //System.out.println("2");
+            return true;
+        }else if(jComboBoxMaterial.getSelectedIndex()==0){
+            //System.out.println("3");
+            return true;
+        }else if(jSpinnerPersonas.getValue().equals(0)){
+            //System.out.println("4");
+            return true;
+        }
+        
         return false;
     }
 
     public boolean compruebaDatosSeminario() {
-        boolean fallaDatosSeminario = false;
+        
+        if(jRadioButtonSeminario.isSelected()){
+            if(jSpinnerJornadas.getValue().equals(0)){
+                return true;
+            }else if(!jRadioButtonHabitacionesNo.isSelected()&&!jRadioButtonHabitacionesSi.isSelected()){
+                return true;
+            }
+        }
 
         return false;
     }
@@ -150,7 +172,7 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jLabelMaterial.setText("Préstamo Material");
 
-        jComboBoxMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Proyector", "Video pantalla táctil", "Tablets", "Portátiles" }));
+        jComboBoxMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Proyector", "Video pantalla táctil", "Tablets", "Portátiles", "Ninguno", "Otros" }));
 
         jLabelPersonas.setText("Nº de Personas");
 
@@ -203,7 +225,7 @@ public class PanelReserva extends javax.swing.JDialog {
                     .addComponent(jSpinnerPersonas, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(jComboBoxMaterial)
                     .addComponent(jLabelMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanelfondo.add(jPanelDatosReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 560, 190));
@@ -216,8 +238,10 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jLabelHabitaciones.setText("Requiere Habitaciones");
 
+        buttonGroupHabitaciones.add(jRadioButtonHabitacionesSi);
         jRadioButtonHabitacionesSi.setText("Si");
 
+        buttonGroupHabitaciones.add(jRadioButtonHabitacionesNo);
         jRadioButtonHabitacionesNo.setText("No");
 
         javax.swing.GroupLayout jPanelOpcionesSeminarioLayout = new javax.swing.GroupLayout(jPanelOpcionesSeminario);
@@ -254,7 +278,8 @@ public class PanelReserva extends javax.swing.JDialog {
 
         jPanelfondo.add(jPanelOpcionesSeminario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 270, 170));
 
-        jButtonReservar.setText("RESERVAR");
+        jButtonReservar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jButtonReservar.setText("Reservar");
         jButtonReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReservarActionPerformed(evt);
@@ -281,7 +306,15 @@ public class PanelReserva extends javax.swing.JDialog {
 
     private void jButtonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservarActionPerformed
 
-
+        if (compruebaDatosPersonales()) {
+            JOptionPane.showMessageDialog(this, "Revise sus datos personales", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (compruebaDatosReserva()) {
+            JOptionPane.showMessageDialog(this, "Revise los datos de la reserva", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (compruebaDatosSeminario()) {
+            JOptionPane.showMessageDialog(this, "Revise los datos del seminario ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Reserva realizada con éxito", "Message", JOptionPane.INFORMATION_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButtonReservarActionPerformed
 
