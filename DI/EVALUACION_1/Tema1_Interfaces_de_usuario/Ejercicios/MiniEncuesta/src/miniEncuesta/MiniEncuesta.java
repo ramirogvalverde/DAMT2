@@ -188,15 +188,15 @@ public class MiniEncuesta extends javax.swing.JFrame {
                 esp= "\nAdministración";
                 
             }else{
-                esp +="\n Administracion";
+                esp +="\nAdministración";
             }
         }
         
         
         
         JOptionPane jop = new JOptionPane("Sistema operativo seleccionado: " + radio + "\n"
-                + "Especialidades seleccionadas: " + esp + "\n"
-                + "Nº de horas dedicadas: " + jSlider.getValue(), JOptionPane.INFORMATION_MESSAGE);
+                + "\nEspecialidades seleccionadas: " + esp + "\n"
+                + "\nNº de horas dedicadas: " + jSlider.getValue(), JOptionPane.INFORMATION_MESSAGE);
         JDialog jd = jop.createDialog("Muestra de datos");
         jd.setLocationRelativeTo(jPanel1);
         jd.setVisible(true);
