@@ -22,22 +22,27 @@ public class Suma {
 
         int suma = 0;
         String lectura = null;
-
-        File fichero = new File(args[0]);
-        File ficheroRes = new File(args[0] + ".res");
-
+        
+        // declaro los ficheros que necesito
+        File fichero = new File(args[0]);// para leer (FileReader)
+        File ficheroRes = new File(args[0] + ".res");// para escribir (Filewriter)
+        
         if (ficheroRes.exists()) {
             ficheroRes.delete();
         }
-
+        
+        // utilizo el try with resources para iniciar los flujos
         try ( FileReader fr = new FileReader(fichero);  BufferedReader br = new BufferedReader(fr);  FileWriter fw = new FileWriter(ficheroRes)) {
-
+            
+            // el condicional me permite leer línea a línea e ir sumándolas
             while ((lectura = br.readLine()) != null) {
                 suma += Integer.parseInt(lectura);
             }
             
-            fw.write(suma +""); //al ponerlo sin las comillas me imprime un caracter, no el número
+            // escribo en el .res
+            fw.write(suma +""); // (al ponerlo sin las comillas me imprime un caracter, no el número)
             
+            // imprimo por pantalla (salida estándar)
             System.out.println("La suma de los numeros del archivo es: " + suma);
 
         } catch (FileNotFoundException ex) {

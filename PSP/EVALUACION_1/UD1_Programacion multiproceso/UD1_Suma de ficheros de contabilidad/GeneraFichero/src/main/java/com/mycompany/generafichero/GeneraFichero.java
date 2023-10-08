@@ -14,7 +14,7 @@ public class GeneraFichero {
 
     public static void main(String[] args) {
 
-        generarFicheros(3, 50);
+        generarFicheros(3, 1000000);
 
     }
 
