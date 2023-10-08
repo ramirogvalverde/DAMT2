@@ -1,6 +1,6 @@
 Fuentes de la idea de negocio:
 
-	1. Caracteristicas personales.
+	1. Características personales.
 
 		Experiencia.
 		Aficiones.
@@ -13,7 +13,7 @@ Fuentes de la idea de negocio:
 
 	4. Innovación de un producto.
 
-		Mejorar uno exitente.
+		Mejorar uno existente.
 		Dar un nuevo uso a los existentes.
 
 
