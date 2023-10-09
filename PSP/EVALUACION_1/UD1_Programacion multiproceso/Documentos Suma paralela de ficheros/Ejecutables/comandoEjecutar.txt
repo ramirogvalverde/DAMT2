@@ -1,0 +1,3 @@
+Haciendo la vida más fácil
+
+java -jar SumaTotales.jar contabilidad1.txt contabilidad2.txt contabilidad3.txt
