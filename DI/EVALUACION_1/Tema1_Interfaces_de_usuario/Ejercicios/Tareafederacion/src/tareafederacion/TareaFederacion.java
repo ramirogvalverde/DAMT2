@@ -4,6 +4,10 @@
  */
 package tareafederacion;
 
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author damt210
@@ -16,6 +20,30 @@ public class TareaFederacion extends javax.swing.JFrame {
     public TareaFederacion() {
         initComponents();
     }
+    String apeNom = null;
+    String equipo = null;
+
+    public boolean compruebaApeNom() {
+        if (jTextFieldApeNom.getText().isBlank()) {
+
+            return false;
+        } else {
+            apeNom = jTextFieldApeNom.getText();
+            return true;
+        }
+
+    }
+
+    public boolean compruebaEquipo() {
+        if (jComboBoxEquipo.getSelectedIndex() == 0) {
+
+            return false;
+        } else {
+            equipo = jComboBoxEquipo.getSelectedItem().toString();
+            return true;
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +54,95 @@ public class TareaFederacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Fondo = new javax.swing.JPanel();
+        jLabel1ApeNom = new javax.swing.JLabel();
+        jLabelEquipo = new javax.swing.JLabel();
+        jTextFieldApeNom = new javax.swing.JTextField();
+        jComboBoxEquipo = new javax.swing.JComboBox<>();
+        jButtonAgregar = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
+        jScrollPane = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLabelIcono = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ingreso de datos");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1ApeNom.setText("Apellidos y Nombre");
+        Fondo.add(jLabel1ApeNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        jLabelEquipo.setText("Equipo");
+        Fondo.add(jLabelEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jTextFieldApeNom.setToolTipText("Introduzca Apellidos y Nombre");
+        Fondo.add(jTextFieldApeNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 280, -1));
+
+        jComboBoxEquipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Real Madrid", "FC Barcelona", "RC Racing", "CB Betis" }));
+        jComboBoxEquipo.setToolTipText("Seleccione un equipo de la lista");
+        Fondo.add(jComboBoxEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 280, -1));
+
+        jButtonAgregar.setText("Agregar");
+        jButtonAgregar.setToolTipText("Botón para agregar a la tabla");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActionPerformed(evt);
+            }
+        });
+        Fondo.add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.setToolTipText("Botón para limpiar los datos");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiarActionPerformed(evt);
+            }
+        });
+        Fondo.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Apellidos y Nombre", "Equipo"
+            }
+        ));
+        jScrollPane.setViewportView(jTable);
+
+        Fondo.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 460, 190));
+
+        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ESP256x.png"))); // NOI18N
+        Fondo.add(jLabelIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 260, 260));
+
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
+
+        if (compruebaApeNom() && compruebaEquipo()) {
+            String[] entrada = {apeNom, equipo};
+            DefaultTableModel modelo = (DefaultTableModel) jTable.getModel();
+
+            modelo.addRow(entrada);
+        } else if (!compruebaApeNom()) {
+            JOptionPane.showMessageDialog(this, "Apellidos y nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!compruebaEquipo()) {
+            JOptionPane.showMessageDialog(this, "Seleccione un equiipo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
+
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+        jTextFieldApeNom.setText("");
+        jComboBoxEquipo.setSelectedIndex(0);
+        jTextFieldApeNom.requestFocus();
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +180,15 @@ public class TareaFederacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Fondo;
+    private javax.swing.JButton jButtonAgregar;
+    private javax.swing.JButton jButtonLimpiar;
+    private javax.swing.JComboBox<String> jComboBoxEquipo;
+    private javax.swing.JLabel jLabel1ApeNom;
+    private javax.swing.JLabel jLabelEquipo;
+    private javax.swing.JLabel jLabelIcono;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextField jTextFieldApeNom;
     // End of variables declaration//GEN-END:variables
 }
