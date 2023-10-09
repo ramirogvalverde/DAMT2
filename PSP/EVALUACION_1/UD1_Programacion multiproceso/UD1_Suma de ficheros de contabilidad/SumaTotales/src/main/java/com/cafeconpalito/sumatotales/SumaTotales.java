@@ -38,7 +38,7 @@ public class SumaTotales {
         // bucle que lanza el proceso por cada argumento, generando un .res
         for (int i = 0; i < args.length; i++) {
 
-            String[] command = {"/bin/bash", "-c", "java -jar Suma-1.0-SNAPSHOT-SHADED.jar " + args[i]};
+            String[] command = {"/bin/bash", "-c", "java -jar Suma.jar " + args[i]};
             ProcessBuilder pb = new ProcessBuilder(command);
             Process p = null;
 
@@ -90,7 +90,7 @@ public class SumaTotales {
 
         // inicio los procesos hijos con un bucle
         for (int i = 0; i < args.length; i++) {
-            String[] command = {"/bin/bash", "-c", "java -jar Suma-1.0-SNAPSHOT-SHADED.jar " + args[i]};
+            String[] command = {"/bin/bash", "-c", "java -jar Suma.jar " + args[i]};
             pb = new ProcessBuilder(command);
 
             try {
