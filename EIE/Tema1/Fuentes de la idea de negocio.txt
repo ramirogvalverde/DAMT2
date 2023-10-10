@@ -25,3 +25,20 @@ Design thinking (procedimiento para crear idea de negocio):
 	Constituir la idea. Darle forma. Brainstorming, pensamiento lateral, story telling.
 	Prototipar.
 	Testear.
+
+Proceso de valoración.
+	Pasos:
+
+	Estudio inicial. Posibilidades del mercado.
+	Consulta. Apoyo y asesoramiento de expertos, proveedores y clientes.
+	Análisis de acogida. Evaluar la acogida de nuestra idea.
+	Toma de decisiones. decidir tras las faces anteriores.
+	Puesta en práctica. poner en marcha la idea.
+
+
+Idea de negocio:
+	Aspectos:
+
+	La actividad a la que se va a dedicar
+	Por qué la venta de este producto
+	Objetivos que pretendo alcanzar.
