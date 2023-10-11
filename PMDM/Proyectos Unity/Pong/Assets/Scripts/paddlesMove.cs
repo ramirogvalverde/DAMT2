@@ -7,7 +7,7 @@ public class paddlesMove : MonoBehaviour
 
 
     [SerializeField]
-    private float speed = 4f;
+    private float speed = 7f;
     [SerializeField]
     private bool paddleid = false;
 

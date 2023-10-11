@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     private GameObject ball;
 
     public static GameManager Instance;
+
+    public static bool isPaused = false; 
 
   
 
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        StartCoroutine(WaitFor3Secs());
+
     }
 
 
@@ -64,7 +69,41 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene("Menu");
+
+
+
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("p funciona");
+            if (!isPaused)
+            {
+                pauseGame();
+            }
+            else
+            {
+                reanudeGame();
+            }
+
+
+
+        }
+    }
+    private void pauseGame()
+    {
+        Time.timeScale = 0;      
+        isPaused = true;
+    }
+
+
+
+    private void reanudeGame()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
     }
 
     IEnumerator waitOneSec()
@@ -72,6 +111,13 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Transform>().SetPositionAndRotation(new Vector3(0, 0, 0), transform.rotation);
         ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         yield return new WaitForSeconds(1);
+        ball.GetComponent<ballMovement>().launch();
+    }
+    IEnumerator WaitFor3Secs()
+    {
+        ball.GetComponent<Transform>().SetPositionAndRotation(new Vector3(0, 0, 0), transform.rotation);
+        ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(3);
         ball.GetComponent<ballMovement>().launch();
     }
 
@@ -93,4 +139,6 @@ public class GameManager : MonoBehaviour
         scoreA.SetText(score2.ToString());
         StartCoroutine(waitOneSec());
     }
+
+    
 }

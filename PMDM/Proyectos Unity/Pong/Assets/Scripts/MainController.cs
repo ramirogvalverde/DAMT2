@@ -7,7 +7,25 @@ public class MainController : MonoBehaviour
 {
   public void actionButtonPlay()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("JuegoPrincipal");
     }
+
+    public void actionButtonBack()
+    {
+        SceneManager.LoadScene("Menu");
+
+    }
+    public void actionButtonControls()
+    {
+        SceneManager.LoadScene("Controls");
+
+    }
+
+    public void quit()
+    {
+        Debug.Log("saliendo");
+        Application.Quit();
+    }
+
 
 }

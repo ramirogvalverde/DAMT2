@@ -11,13 +11,13 @@ public class ballMovement : MonoBehaviour
     private Rigidbody2D ballBody;
     [SerializeField]
     private GameManager gameManager;
-    float speedRise = 1.2f;
+    float speedRise = 1.1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         ballBody = GetComponent<Rigidbody2D>();
-        launch();
     }
 
     // Update is called once per frame
@@ -31,7 +31,8 @@ public class ballMovement : MonoBehaviour
         float xSpeed;
         float ySpeed;
 
-        if(Random.Range(0,2)==0)
+        
+        if (Random.Range(0,2)==0)
         {
             xSpeed = 1;
         }
@@ -78,6 +79,8 @@ public class ballMovement : MonoBehaviour
 
         }
     }
+
+    
 
 
 
