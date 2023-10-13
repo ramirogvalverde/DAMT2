@@ -1,0 +1,3 @@
+El sistema operativo es: Windows 11, versión: 10.0
+El nombre del usuario: Ramiro Gutiérrez Valverde
+El directorio de trabajo es: D:\Users
