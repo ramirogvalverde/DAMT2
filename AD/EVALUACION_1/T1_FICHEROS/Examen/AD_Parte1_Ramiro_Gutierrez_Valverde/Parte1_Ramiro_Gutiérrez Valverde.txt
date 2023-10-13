@@ -1,0 +1,11 @@
+Pregunta: Explica y justifica.
+
+¿Qué diferencia hay entre el flujo basado en caracteres y el flujo basado en bytes?
+
+
+El flujo de caracteres interpreta el archivo de entrada caracter a caracter, teniendo en cuenta la codificación del mismo. Utiliza las clases Reader y Writer para lectura y escritura y está limitado a caracteres.
+
+El flujo basado en bytes, por otro lado, interpreta bytes, sin importar de qué tipo, y puede implementar clases que agilicen el proceso como por ejemplo las InputStream o OutputStream.
+
+Si bien el flujo de bytes puede interpretar caracteres, al revés no sucede.
+
