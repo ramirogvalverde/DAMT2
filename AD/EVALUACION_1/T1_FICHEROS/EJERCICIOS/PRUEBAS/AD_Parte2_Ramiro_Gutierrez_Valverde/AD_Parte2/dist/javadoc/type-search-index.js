@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"ad_parte2","l":"AD_Parte2"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ad_parte2","l":"Juego"}];updateSearchResults();
