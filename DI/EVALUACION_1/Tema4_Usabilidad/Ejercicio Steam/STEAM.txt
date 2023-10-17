@@ -1,0 +1,26 @@
+STEAM:
+
+
+Pantalla Logeo
+
+Paleta de colores, iconografía, fuentes estilo propio del cliente. https://colorswall.com/es/palette/257185
+
+Registro de videojuegos:
+	Temática. 
+	Precio compra.
+	Fecha de lanzamiento a la venta.
+	Mercados, países, etc,. En los que se distribuirán los productos.
+	Nº de unidades adquiridas a los distintos proovedores (SONY, PlayStation,Nintendo,etc,….)
+	Rangos de edades a los que va destinados los videojuegos.
+	Temáticas o género.
+	Descripción breve o info del mismo.
+
+
+Se valorará para cada propuesta que presente cada alumno:
+
+1.	Creatividad del diseño.
+2.	La interacción de los campos mínimos requeridos por el cliente, y definidos previamente.
+3.	Qué características básicas y atributos de usabilidad se cumplen.
+4.	Qué pautas de diseño usable se han tenido en cuenta.
+5.	Qué principios básicos estructurales se cumplen.
+6.	Qué elementos de la Interfaz y estructura de la misma propondrías para aumentar la usabilidad de cada una.
