@@ -5,7 +5,6 @@
 package steamapp;
 
 import java.awt.Image;
-import java.awt.List;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -15,10 +14,18 @@ import javax.swing.ImageIcon;
  */
 public class Login extends javax.swing.JFrame {
 
+    public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+
     /**
      * Creates new form Login
      */
     public Login() {
+
+        Usuario Ramiro = new Usuario("ramiro@steam.com", "1234");
+        Usuario prueba = new Usuario("ramiro", "1234");
+        listaUsuarios.add(Ramiro);
+        listaUsuarios.add(prueba);
+
         initComponents();
 
         ImageIcon image2 = new ImageIcon("src/images/equis.png");
@@ -32,20 +39,31 @@ public class Login extends javax.swing.JFrame {
     }
 
     public Boolean estaEnLista(String email, String password) {
-        
-        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-        
-        Usuario Ramiro = new Usuario("ramiro@steam.com", "1234");       
-        listaUsuarios.add(Ramiro);
-        
-        Usuario usuarioBuscado = new Usuario(email, password);
 
-        if (listaUsuarios.contains(usuarioBuscado)) {
-            return true;
-        
-        }else{
-            return false;
+        /*for (Usuario i : listaUsuarios) {
+            if (i.getEmail().equals(email)) {
+                if (i.getPassword().equals(password)) {
+                    return true;
+                }
+            }
+            
         }
+        return false;*/
+        for (Usuario i : listaUsuarios) {
+            if (i.getEmail().equals(email)) {
+                if (i.getPassword().equals(password)) {
+                    return true;
+                } else {
+                    jTextFieldPassword.setText("Wrong Password");
+                    return false;
+                }
+            }
+
+        }
+        jTextFieldId.setText("User not found");
+        jTextFieldPassword.setText("");
+        return false;
+
     }
 
     /**
@@ -185,7 +203,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jPanelFondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, 90, -1));
+        jPanelFondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 100, -1));
 
         jPanel1.setBackground(new java.awt.Color(23, 26, 33));
 
@@ -230,7 +248,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelXMouseClicked
 
     private void jTextFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPasswordMouseClicked
-        if (jTextFieldPassword.getText().equalsIgnoreCase("PASSWORD")) {
+        if (jTextFieldPassword.getText().equalsIgnoreCase("PASSWORD") || jTextFieldPassword.getText().equalsIgnoreCase("Wrong Password")) {
             jTextFieldPassword.setText("");
         }
 
@@ -250,7 +268,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdFocusLost
 
     private void jTextFieldIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldIdMouseClicked
-        if (jTextFieldId.getText().equalsIgnoreCase("ID")) {
+        if (jTextFieldId.getText().equalsIgnoreCase("ID") || jTextFieldId.getText().equalsIgnoreCase("User not found")) {
+
             jTextFieldId.setText("");
         }
     }//GEN-LAST:event_jTextFieldIdMouseClicked
@@ -260,12 +279,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        
-        if (estaEnLista(jTextFieldId.getText().toString(), jTextFieldPassword.getText().toString())){
-            System.out.println("ok");
-        }else{
-            System.out.println("not ok");
+
+        if (estaEnLista(jTextFieldId.getText().toString(), jTextFieldPassword.getText().toString())) {
+
+            Options opciones = new Options();
+            opciones.setVisible(true);
+        } else {
+
         }
+
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
