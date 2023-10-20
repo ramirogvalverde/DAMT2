@@ -19,7 +19,7 @@ public class Options extends javax.swing.JFrame {
     public Options() {
         initComponents();
         
-        ImageIcon image2 = new ImageIcon("src/images/equis.png");
+        ImageIcon image2 = new ImageIcon("src/images/leftArrow32.png");
         Image imgEscalada2 = image2.getImage().getScaledInstance(jLabelX.getWidth(), jLabelX.getHeight(), WIDTH);
         ImageIcon imgFinal2 = new ImageIcon(imgEscalada2);
         jLabelX.setIcon(imgFinal2);
@@ -50,11 +50,14 @@ public class Options extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
+        setResizable(false);
+        setSize(new java.awt.Dimension(900, 650));
 
         jPanelFondo.setBackground(new java.awt.Color(27, 40, 56));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,7 +101,7 @@ public class Options extends javax.swing.JFrame {
         jButtonLogin.setForeground(new java.awt.Color(0, 0, 0));
         jButtonLogin.setText("LIST");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 170, 50));
+        jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 170, 50));
 
         jButtonLogin1.setBackground(new java.awt.Color(172, 213, 80));
         jButtonLogin1.setForeground(new java.awt.Color(0, 0, 0));
@@ -109,7 +112,7 @@ public class Options extends javax.swing.JFrame {
                 jButtonLogin1ActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 170, 50));
+        jPanelFondo.add(jButtonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 170, 50));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -144,12 +147,27 @@ public class Options extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 350, 150));
+        jPanelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 350, 150));
 
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Last added");
-        jPanelFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 160, 20));
+        jPanelFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 160, 20));
+
+        jPanel1.setBackground(new java.awt.Color(23, 26, 33));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        jPanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 640, 230));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new_login_bg_strong_mask.jpg"))); // NOI18N
         jPanelFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
@@ -162,7 +180,7 @@ public class Options extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -172,6 +190,7 @@ public class Options extends javax.swing.JFrame {
     private void jLabelXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelXMouseClicked
         Login login = new Login();
         login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabelXMouseClicked
 
     private void jButtonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogin1ActionPerformed
@@ -224,6 +243,7 @@ public class Options extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelX;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelDown;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JPanel jPanelUp;

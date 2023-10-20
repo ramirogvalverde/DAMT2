@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package steamapp;
 
 import java.awt.Image;
@@ -10,7 +7,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author damt210
+ * @author Ramiro
  */
 public class Login extends javax.swing.JFrame {
 
@@ -29,9 +26,9 @@ public class Login extends javax.swing.JFrame {
         initComponents();
 
         ImageIcon image2 = new ImageIcon("src/images/equis.png");
-        Image imgEscalada2 = image2.getImage().getScaledInstance(jLabelX.getWidth(), jLabelX.getHeight(), WIDTH);
+        Image imgEscalada2 = image2.getImage().getScaledInstance(jLabelBack.getWidth(), jLabelBack.getHeight(), WIDTH);
         ImageIcon imgFinal2 = new ImageIcon(imgEscalada2);
-        jLabelX.setIcon(imgFinal2);
+        jLabelBack.setIcon(imgFinal2);
 
         jLabel2.setText("<html>© 2023 Valve Corporation. Todos los derechos reservados.<br>Todas las marcas registradas pertenecen a sus respectivos dueños en EE. UU. y otros países</html>");
         jLabel6.setText("<html><u>Help, can´t log in</u></html>");
@@ -77,7 +74,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanelFondo = new javax.swing.JPanel();
         jPanelUp = new javax.swing.JPanel();
-        jLabelX = new javax.swing.JLabel();
+        jLabelBack = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanelDown = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -97,6 +94,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
+        setResizable(false);
 
         jPanelFondo.setBackground(new java.awt.Color(27, 40, 56));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,13 +102,13 @@ public class Login extends javax.swing.JFrame {
         jPanelUp.setBackground(new java.awt.Color(23, 26, 33));
         jPanelUp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelX.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelXMouseClicked(evt);
+                jLabelBackMouseClicked(evt);
             }
         });
-        jPanelUp.add(jLabelX, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, 40, 40));
+        jPanelUp.add(jLabelBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, 40, 40));
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
@@ -243,9 +241,9 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelXMouseClicked
+    private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabelXMouseClicked
+    }//GEN-LAST:event_jLabelBackMouseClicked
 
     private void jTextFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPasswordMouseClicked
         if (jTextFieldPassword.getText().equalsIgnoreCase("PASSWORD") || jTextFieldPassword.getText().equalsIgnoreCase("Wrong Password")) {
@@ -284,6 +282,8 @@ public class Login extends javax.swing.JFrame {
 
             Options opciones = new Options();
             opciones.setVisible(true);
+            this.setVisible(false);
+            
         } else {
 
         }
@@ -320,7 +320,8 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                Login login = new Login();
+                login.setVisible(true);
             }
         });
     }
@@ -337,7 +338,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelX;
+    private javax.swing.JLabel jLabelBack;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelDown;
     private javax.swing.JPanel jPanelFondo;
