@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package steamapp;
 
 import java.awt.Image;
@@ -99,9 +96,9 @@ public class Options extends javax.swing.JFrame {
 
         jButtonLogin.setBackground(new java.awt.Color(102, 192, 244));
         jButtonLogin.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonLogin.setText("LIST");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 170, 50));
+        jButtonLogin.setLabel("BROWSE");
+        jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 170, 50));
 
         jButtonLogin1.setBackground(new java.awt.Color(172, 213, 80));
         jButtonLogin1.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,7 +109,7 @@ public class Options extends javax.swing.JFrame {
                 jButtonLogin1ActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 170, 50));
+        jPanelFondo.add(jButtonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 170, 50));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -147,12 +144,12 @@ public class Options extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 350, 150));
+        jPanelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 350, 150));
 
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Last added");
-        jPanelFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 160, 20));
+        jPanelFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 160, 20));
 
         jPanel1.setBackground(new java.awt.Color(23, 26, 33));
 
@@ -167,7 +164,7 @@ public class Options extends javax.swing.JFrame {
             .addGap(0, 230, Short.MAX_VALUE)
         );
 
-        jPanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 640, 230));
+        jPanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 640, 230));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new_login_bg_strong_mask.jpg"))); // NOI18N
         jPanelFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
@@ -194,7 +191,8 @@ public class Options extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelXMouseClicked
 
     private void jButtonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogin1ActionPerformed
-        // TODO add your handling code here:
+        AddNew nuevo = new AddNew();
+        nuevo.setVisible(true);
     }//GEN-LAST:event_jButtonLogin1ActionPerformed
 
     /**

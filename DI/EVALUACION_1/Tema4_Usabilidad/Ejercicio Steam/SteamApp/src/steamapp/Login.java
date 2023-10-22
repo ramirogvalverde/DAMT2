@@ -1,4 +1,3 @@
-
 package steamapp;
 
 import java.awt.Image;
@@ -19,9 +18,13 @@ public class Login extends javax.swing.JFrame {
     public Login() {
 
         Usuario Ramiro = new Usuario("ramiro@steam.com", "1234");
-        Usuario prueba = new Usuario("ramiro", "1234");
+        Usuario prueba1 = new Usuario("ID", "PASSWORD");
+        Usuario prueba2 = new Usuario("ramiro", "1234");
         listaUsuarios.add(Ramiro);
-        listaUsuarios.add(prueba);
+        listaUsuarios.add(prueba1);
+        listaUsuarios.add(prueba2);
+        
+        
 
         initComponents();
 
@@ -283,7 +286,7 @@ public class Login extends javax.swing.JFrame {
             Options opciones = new Options();
             opciones.setVisible(true);
             this.setVisible(false);
-            
+
         } else {
 
         }
