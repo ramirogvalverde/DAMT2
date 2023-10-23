@@ -63,8 +63,8 @@ public class Options extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButtonLogin = new javax.swing.JButton();
-        jButtonLogin1 = new javax.swing.JButton();
+        jButtonBrowse = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -115,22 +115,27 @@ public class Options extends javax.swing.JFrame {
 
         jPanelFondo.add(jPanelDown, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 900, 130));
 
-        jButtonLogin.setBackground(new java.awt.Color(102, 192, 244));
-        jButtonLogin.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonLogin.setLabel("BROWSE");
-        jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 170, 50));
-
-        jButtonLogin1.setBackground(new java.awt.Color(172, 213, 80));
-        jButtonLogin1.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonLogin1.setText("ADD NEW");
-        jButtonLogin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonLogin1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBrowse.setBackground(new java.awt.Color(102, 192, 244));
+        jButtonBrowse.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonBrowse.setLabel("BROWSE");
+        jButtonBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLogin1ActionPerformed(evt);
+                jButtonBrowseActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 170, 50));
+        jPanelFondo.add(jButtonBrowse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 170, 50));
+
+        jButtonAdd.setBackground(new java.awt.Color(172, 213, 80));
+        jButtonAdd.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonAdd.setText("ADD NEW");
+        jButtonAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 170, 50));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -220,11 +225,17 @@ public class Options extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabelXMouseClicked
 
-    private void jButtonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogin1ActionPerformed
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         AddNew nuevo = new AddNew();
         nuevo.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonLogin1ActionPerformed
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
+        SearchGame busca = new SearchGame();
+        busca.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonBrowseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,8 +274,8 @@ public class Options extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonLogin;
-    private javax.swing.JButton jButtonLogin1;
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonBrowse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
