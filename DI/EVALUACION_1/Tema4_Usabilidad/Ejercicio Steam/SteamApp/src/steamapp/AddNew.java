@@ -1,7 +1,7 @@
-
 package steamapp;
 
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ramiro
@@ -341,19 +341,24 @@ public class AddNew extends javax.swing.JFrame {
 
         buttonGroupPegi.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton1.setText("3");
+        jRadioButton1.setText("+3");
 
         buttonGroupPegi.add(jRadioButton2);
         jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton2.setText("7");
+        jRadioButton2.setText("+7");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         buttonGroupPegi.add(jRadioButton3);
         jRadioButton3.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton3.setText("14");
+        jRadioButton3.setText("+14");
 
         buttonGroupPegi.add(jRadioButton4);
         jRadioButton4.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton4.setText("18");
+        jRadioButton4.setText("+18");
 
         jTextFieldIdPrice.setBackground(new java.awt.Color(204, 204, 204));
         jTextFieldIdPrice.setForeground(new java.awt.Color(51, 51, 51));
@@ -373,7 +378,6 @@ public class AddNew extends javax.swing.JFrame {
         jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select Theme>", "Action", "Adventure", "Arcade", "Music games", "Simulation", "Sports", "Strategy", "Table games", " " }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 40, 1, 1));
-        jComboBox1.setIgnoreRepaint(true);
         jComboBox1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jComboBox1FocusGained(evt);
@@ -392,7 +396,6 @@ public class AddNew extends javax.swing.JFrame {
         jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select Market>", "Asia", "West Market", "Worldwide", " " }));
         jComboBox2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 40, 1, 1));
-        jComboBox2.setIgnoreRepaint(true);
         jComboBox2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jComboBox2FocusGained(evt);
@@ -453,7 +456,7 @@ public class AddNew extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+                .addContainerGap(213, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldName)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -483,16 +486,16 @@ public class AddNew extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
-                                .addGap(31, 31, 31)
+                                .addGap(18, 18, 18)
                                 .addComponent(jRadioButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jRadioButton3)
-                                .addGap(26, 26, 26)
-                                .addComponent(jRadioButton4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton4)
+                                .addGap(6, 6, 6))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
@@ -517,7 +520,7 @@ public class AddNew extends javax.swing.JFrame {
                                         .addComponent(jCheckBox2)
                                         .addGap(18, 18, 18)
                                         .addComponent(jCheckBox3)))))
-                        .addGap(0, 26, Short.MAX_VALUE))
+                        .addGap(0, 27, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -528,7 +531,7 @@ public class AddNew extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel9)
@@ -590,7 +593,7 @@ public class AddNew extends javax.swing.JFrame {
                             .addComponent(check6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(34, Short.MAX_VALUE))))
+                        .addContainerGap(32, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -633,6 +636,7 @@ public class AddNew extends javax.swing.JFrame {
         getContentPane().add(jLayeredPane1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNameFocusLost
@@ -642,6 +646,7 @@ public class AddNew extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNameFocusLost
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+
         if (!nombreCorrecto()) {
             check1.setVisible(true);
             jTextFieldName.setText("Name");
@@ -660,12 +665,42 @@ public class AddNew extends javax.swing.JFrame {
         } else if (!plataformaCorrecto()) {
             check8.setVisible(true);
         } else {
-            ListadoJuegos.anadirJuego(jTextFieldName.getText(), jComboBox1.getSelectedItem().toString(), jDateChooser2.getDate(), jTextFieldIdPrice.getText().toString(), jComboBox2.getSelectedItem().toString(), 5, jTextArea1.getText(), "platform");
-            
+
+            int pegiSeleccionado = 0;
+            if (jRadioButton1.isSelected()) {
+                pegiSeleccionado = 3;
+            } else if (jRadioButton2.isSelected()) {
+                pegiSeleccionado = 7;
+            } else if (jRadioButton3.isSelected()) {
+                pegiSeleccionado = 14;
+            } else if (jRadioButton4.isSelected()) {
+                pegiSeleccionado = 18;
+            }
+
+            String plataformaSeleccionada = "";
+
+            if (jCheckBox1.isSelected()) {
+                plataformaSeleccionada = "Windows";
+            }
+            if (jCheckBox2.isSelected()) {
+                plataformaSeleccionada += ", MacOS";
+            }
+            if (jCheckBox3.isSelected()) {
+                plataformaSeleccionada += ", IOS";
+            }
+            if (jCheckBox4.isSelected()) {
+                plataformaSeleccionada += ", Android";
+            }
+            if (jCheckBox2.isSelected()) {
+                plataformaSeleccionada += ", Others";
+            }
+
+            ListadoJuegos.anadirJuego(jTextFieldName.getText(), jComboBox1.getSelectedItem().toString(), jDateChooser2.getDate(), jTextFieldIdPrice.getText(), jComboBox2.getSelectedItem().toString(), pegiSeleccionado, jTextArea1.getText(), plataformaSeleccionada);
+
             JOptionPane.showMessageDialog(this, "GAME ADDED", "INFO", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("juego añadido");
             clear();
-            
+
         }
     }//GEN-LAST:event_jButtonAddActionPerformed
 
@@ -688,9 +723,9 @@ public class AddNew extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1FocusGained
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-       Options op = new Options();
+        Options op = new Options();
         op.setVisible(true);
-        
+
     }//GEN-LAST:event_formWindowClosed
 
     private void jTextFieldIdPriceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdPriceFocusGained
@@ -707,6 +742,10 @@ public class AddNew extends javax.swing.JFrame {
             check1.setVisible(false);
         }
     }//GEN-LAST:event_jTextFieldNameFocusGained
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments

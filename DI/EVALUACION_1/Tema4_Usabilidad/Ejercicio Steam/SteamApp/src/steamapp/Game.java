@@ -95,7 +95,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Nombre: " + name + ", hasta aquí es suficiente";
+        return "Nombre: " + name + ", plataformas: " + platform;
     }
     
     

@@ -3,6 +3,7 @@ package steamapp;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Options extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Options() {
+        
         initComponents();
         
         ImageIcon image2 = new ImageIcon("src/images/leftArrow32.png");
@@ -23,6 +25,25 @@ public class Options extends javax.swing.JFrame {
         
         jLabel2.setText("<html>© 2023 Valve Corporation. Todos los derechos reservados.<br>Todas las marcas registradas pertenecen a sus respectivos dueños en EE. UU. y otros países</html>");
     
+        cargarTabla();
+        
+    }
+    
+    private void cargarTabla(){
+        
+        DefaultTableModel modeloTabla = (DefaultTableModel) jTable1.getModel();
+        
+        modeloTabla.setRowCount(0);
+        
+        Object[] row = new Object[2];
+        
+        for (Game i : ListadoJuegos.lista) {
+            
+            row[0] = i.getName();
+            row[1] = i.getPlatform();
+            modeloTabla.addRow(row);
+        }
+        
     }
 
     /**
@@ -118,6 +139,7 @@ public class Options extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBar(null);
 
         jTable1.setBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -133,7 +155,15 @@ public class Options extends javax.swing.JFrame {
             new String [] {
                 "Name", "Platform"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTable1.setToolTipText("");
         jTable1.setFocusable(false);
         jTable1.setGridColor(new java.awt.Color(102, 102, 102));
@@ -166,7 +196,7 @@ public class Options extends javax.swing.JFrame {
 
         jPanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 640, 230));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new_login_bg_strong_mask.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanelFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

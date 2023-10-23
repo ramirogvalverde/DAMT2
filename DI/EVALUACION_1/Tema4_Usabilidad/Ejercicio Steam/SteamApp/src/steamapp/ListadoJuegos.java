@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class ListadoJuegos {
 
-   static ArrayList<Game> lista = new ArrayList<>();
+   public static ArrayList<Game> lista = new ArrayList<>();
 
     public static void anadirJuego(String name, String theme, Date date, String price, String market, int pegi, String description, String platform) {
 
@@ -25,7 +25,7 @@ public class ListadoJuegos {
         
         lista.add(juego);
         
-        juego.toString();
+        System.out.println( juego.toString());
     }
     
     

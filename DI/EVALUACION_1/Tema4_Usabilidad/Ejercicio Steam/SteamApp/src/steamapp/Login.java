@@ -18,8 +18,9 @@ public class Login extends javax.swing.JFrame {
     public Login() {
 
         Usuario Ramiro = new Usuario("ramiro@steam.com", "1234");
+        Usuario ra = new Usuario("ramiro", "1234");
         listaUsuarios.add(Ramiro);
-        
+        listaUsuarios.add(ra);
         
         
 
@@ -29,6 +30,9 @@ public class Login extends javax.swing.JFrame {
         Image imgEscalada2 = image2.getImage().getScaledInstance(jLabelBack.getWidth(), jLabelBack.getHeight(), WIDTH);
         ImageIcon imgFinal2 = new ImageIcon(imgEscalada2);
         jLabelBack.setIcon(imgFinal2);
+        
+        check2.setVisible(false);
+        check3.setVisible(false);
 
         jLabel2.setText("<html>© 2023 Valve Corporation. Todos los derechos reservados.<br>Todas las marcas registradas pertenecen a sus respectivos dueños en EE. UU. y otros países</html>");
         jLabel6.setText("<html><u>Help, can´t log in</u></html>");
@@ -42,13 +46,13 @@ public class Login extends javax.swing.JFrame {
                 if (i.getPassword().equals(password)) {
                     return true;
                 } else {
-                    jPasswordField1.setText("Password");
+                    check2.setVisible(true);
                     return false;
                 }
             }
 
         }
-        jTextFieldId.setText("User not found");
+        check3.setVisible(true);
         jPasswordField1.setText("");
         return false;
 
@@ -63,6 +67,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        check1 = new javax.swing.JLabel();
         jPanelFondo = new javax.swing.JPanel();
         jPanelUp = new javax.swing.JPanel();
         jLabelBack = new javax.swing.JLabel();
@@ -72,15 +77,21 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextFieldId = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        check2 = new javax.swing.JLabel();
+        check3 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        check1.setForeground(new java.awt.Color(255, 153, 153));
+        check1.setText("check");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -136,21 +147,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanelFondo.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 170, 50));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(2, 192, 244));
-        jLabel4.setText("ID (company email)");
-        jPanelFondo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 330, -1));
-
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(2, 192, 244));
-        jLabel5.setText("PASSWORD");
-        jPanelFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 330, -1));
-
-        jCheckBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(204, 204, 204));
-        jCheckBox1.setText("Remember me");
-        jPanelFondo.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
-
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jPanelFondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 100, -1));
@@ -184,25 +180,63 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(2, 192, 244));
+        jLabel4.setText("ID (company email)");
+
+        check2.setForeground(new java.awt.Color(255, 153, 153));
+        check2.setText("check");
+
+        check3.setForeground(new java.awt.Color(255, 153, 153));
+        check3.setText("check");
+
+        jCheckBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(204, 204, 204));
+        jCheckBox1.setText("Remember me");
+
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(2, 192, 244));
+        jLabel5.setText("PASSWORD");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldId)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldId)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(26, 26, 26)
+                        .addComponent(check3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(28, 28, 28)
+                        .addComponent(check2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(check3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(check2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jCheckBox1)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         jPanelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 370, 300));
@@ -212,8 +246,11 @@ public class Login extends javax.swing.JFrame {
         jLabel9.setText("Login");
         jPanelFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 157, 160, 20));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new_login_bg_strong_mask.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jPanelFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanelFondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,15 +292,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
-        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Password") || String.valueOf(jPasswordField1.getPassword()).isBlank()) {
-
+        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Password")||check2.isVisible()) {
+            check2.setVisible(false);
             jPasswordField1.setText("");
         }
     }//GEN-LAST:event_jPasswordField1FocusGained
 
     private void jTextFieldIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdFocusGained
-        if (jTextFieldId.getText().equalsIgnoreCase("ID") || jTextFieldId.getText().equalsIgnoreCase("User not found")) {
-
+        if (jTextFieldId.getText().equalsIgnoreCase("ID")|| check3.isVisible()) {
+            check3.setVisible(false);
             jTextFieldId.setText("");
         }
     }//GEN-LAST:event_jTextFieldIdFocusGained
@@ -312,9 +349,13 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel check1;
+    private javax.swing.JLabel check2;
+    private javax.swing.JLabel check3;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
