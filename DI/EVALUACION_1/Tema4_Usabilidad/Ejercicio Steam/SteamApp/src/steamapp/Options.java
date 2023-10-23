@@ -193,6 +193,7 @@ public class Options extends javax.swing.JFrame {
     private void jButtonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogin1ActionPerformed
         AddNew nuevo = new AddNew();
         nuevo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonLogin1ActionPerformed
 
     /**

@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package steamapp;
 
+import javax.swing.JOptionPane;
 /**
  *
- * @author damt210
+ * @author Ramiro
  */
+
 public class AddNew extends javax.swing.JFrame {
 
     /**
@@ -16,7 +15,6 @@ public class AddNew extends javax.swing.JFrame {
     public AddNew() {
         initComponents();
         jLabel3.setText("<html>© 2023 Valve Corporation. Todos los derechos reservados.<br>Todas las marcas registradas pertenecen a sus respectivos dueños en EE. UU. y otros países</html>");
-
         check1.setVisible(false);
         check2.setVisible(false);
         check3.setVisible(false);
@@ -29,55 +27,122 @@ public class AddNew extends javax.swing.JFrame {
     }
 
     public boolean nombreCorrecto() {
-        
+
         if (jTextFieldName.getText().isBlank() || jTextFieldName.getText().equalsIgnoreCase("Name")) {
 
             return false;
 
         } else {
-            
+
             return true;
         }
 
     }
-    
+
     public boolean precioCorrecto() {
-        
+
         if (jTextFieldIdPrice.getText().isBlank() || jTextFieldIdPrice.getText().equalsIgnoreCase("Price")) {
 
             return false;
 
         } else {
-            
+
             return true;
         }
 
     }
-    
+
     public boolean themeCorrecto() {
-        
-        if (jComboBox1.getSelectedIndex()==0) {
+
+        if (jComboBox1.getSelectedIndex() == 0) {
 
             return false;
 
         } else {
-            
+
             return true;
         }
 
     }
-    
+
     public boolean marketCorrecto() {
-        
-        if (jComboBox2.getSelectedIndex()==0) {
+
+        if (jComboBox2.getSelectedIndex() == 0) {
 
             return false;
 
         } else {
-            
+
             return true;
         }
 
+    }
+
+    public boolean dateCorrecto() {
+
+        if (jDateChooser2.getDate() == null) {
+
+            return false;
+
+        } else {
+            check4.setVisible(false);
+            return true;
+        }
+
+    }
+
+    public boolean pegiCorrecto() {
+
+        if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected() && !jRadioButton3.isSelected() && !jRadioButton4.isSelected()) {
+
+            return false;
+
+        } else {
+            check2.setVisible(false);
+            return true;
+        }
+
+    }
+
+    public boolean descriptionCorrecto() {
+
+        if (jTextArea1.getText().equalsIgnoreCase("")) {
+
+            return false;
+
+        } else {
+            check7.setVisible(false);
+            return true;
+        }
+
+    }
+
+    public boolean plataformaCorrecto() {
+
+        if (!jCheckBox1.isSelected() && !jCheckBox2.isSelected() && !jCheckBox3.isSelected() && !jCheckBox4.isSelected() && !jCheckBox5.isSelected()) {
+
+            return false;
+
+        } else {
+            check8.setVisible(false);
+            return true;
+        }
+
+    }
+
+    public void clear() {
+        jTextFieldName.setText("Name");
+        jComboBox1.setSelectedIndex(0);
+        jComboBox2.setSelectedIndex(0);
+        jDateChooser2.setDate(null);
+        jTextFieldIdPrice.setText("Price");
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+        buttonGroupPegi.clearSelection();
+        jTextArea1.setText("");
     }
 
     /**
@@ -113,7 +178,7 @@ public class AddNew extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
         jTextFieldIdPrice = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
@@ -138,6 +203,11 @@ public class AddNew extends javax.swing.JFrame {
         setTitle("ADD NEW GAME");
         setBackground(new java.awt.Color(23, 26, 33));
         setMinimumSize(new java.awt.Dimension(900, 650));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanelUp.setBackground(new java.awt.Color(23, 26, 33));
@@ -222,19 +292,17 @@ public class AddNew extends javax.swing.JFrame {
         jLabel6.setText("NAME");
 
         jTextFieldName.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldName.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldName.setForeground(new java.awt.Color(51, 51, 51));
         jTextFieldName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldName.setText("Name");
         jTextFieldName.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 50, 5, 5));
         jTextFieldName.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldNameFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldNameFocusLost(evt);
-            }
-        });
-        jTextFieldName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldNameMouseClicked(evt);
             }
         });
 
@@ -256,7 +324,7 @@ public class AddNew extends javax.swing.JFrame {
 
         jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextArea1.setForeground(new java.awt.Color(51, 51, 51));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
@@ -269,7 +337,7 @@ public class AddNew extends javax.swing.JFrame {
 
         jDateChooser2.setBackground(new java.awt.Color(204, 204, 204));
         jDateChooser2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 50, 1, 1));
-        jDateChooser2.setForeground(new java.awt.Color(102, 102, 102));
+        jDateChooser2.setForeground(new java.awt.Color(51, 51, 51));
 
         buttonGroupPegi.add(jRadioButton1);
         jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
@@ -277,34 +345,32 @@ public class AddNew extends javax.swing.JFrame {
 
         buttonGroupPegi.add(jRadioButton2);
         jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton2.setText("14");
+        jRadioButton2.setText("7");
 
         buttonGroupPegi.add(jRadioButton3);
         jRadioButton3.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton3.setText("18");
+        jRadioButton3.setText("14");
 
-        buttonGroupPegi.add(jRadioButton5);
-        jRadioButton5.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton5.setText("7");
+        buttonGroupPegi.add(jRadioButton4);
+        jRadioButton4.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton4.setText("18");
 
         jTextFieldIdPrice.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldIdPrice.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldIdPrice.setForeground(new java.awt.Color(51, 51, 51));
         jTextFieldIdPrice.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextFieldIdPrice.setText("Price");
         jTextFieldIdPrice.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 50, 5, 5));
         jTextFieldIdPrice.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldIdPriceFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldIdPriceFocusLost(evt);
             }
         });
-        jTextFieldIdPrice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldIdPriceMouseClicked(evt);
-            }
-        });
 
         jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
+        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select Theme>", "Action", "Adventure", "Arcade", "Music games", "Simulation", "Sports", "Strategy", "Table games", " " }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 40, 1, 1));
         jComboBox1.setIgnoreRepaint(true);
@@ -323,7 +389,7 @@ public class AddNew extends javax.swing.JFrame {
         jLabel14.setText("MARKET");
 
         jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox2.setForeground(new java.awt.Color(102, 102, 102));
+        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Select Market>", "Asia", "West Market", "Worldwide", " " }));
         jComboBox2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 40, 1, 1));
         jComboBox2.setIgnoreRepaint(true);
@@ -387,7 +453,7 @@ public class AddNew extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(243, Short.MAX_VALUE)
+                .addContainerGap(214, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldName)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -417,16 +483,16 @@ public class AddNew extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(21, 21, 21)
                                 .addComponent(jRadioButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton5)
-                                .addGap(18, 18, 18)
+                                .addGap(31, 31, 31)
                                 .addComponent(jRadioButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton3)
+                                .addGap(26, 26, 26)
+                                .addComponent(jRadioButton4))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
@@ -435,31 +501,29 @@ public class AddNew extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addGap(18, 18, 18)
                                 .addComponent(check7))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox1)
-                                        .addComponent(jCheckBox4))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox3))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
+                                .addComponent(check8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(check8)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jCheckBox4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox5)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox5)
-                                            .addComponent(jCheckBox2))))))
-                        .addGap(0, 11, Short.MAX_VALUE))
+                                        .addComponent(jCheckBox2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBox3)))))
+                        .addGap(0, 26, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,9 +538,9 @@ public class AddNew extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton5)
                     .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -499,7 +563,7 @@ public class AddNew extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(check8))
-                        .addGap(8, 8, 8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox1)
                             .addComponent(jCheckBox2)
@@ -508,7 +572,7 @@ public class AddNew extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox4)
                             .addComponent(jCheckBox5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -526,7 +590,7 @@ public class AddNew extends javax.swing.JFrame {
                             .addComponent(check6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(34, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -571,14 +635,6 @@ public class AddNew extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNameMouseClicked
-        if (jTextFieldName.getText().equalsIgnoreCase("Name")) {
-
-            jTextFieldName.setText("");
-            check1.setVisible(false);
-        }
-    }//GEN-LAST:event_jTextFieldNameMouseClicked
-
     private void jTextFieldNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNameFocusLost
         if (jTextFieldName.getText().isBlank()) {
             jTextFieldName.setText("Name");
@@ -586,28 +642,36 @@ public class AddNew extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNameFocusLost
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        if (!nombreCorrecto()){
+        if (!nombreCorrecto()) {
             check1.setVisible(true);
             jTextFieldName.setText("Name");
-        } else if(!themeCorrecto()){
+        } else if (!themeCorrecto()) {
             check3.setVisible(true);
-        } else if(!precioCorrecto()){
+        } else if (!dateCorrecto()) {
+            check4.setVisible(true);
+        } else if (!precioCorrecto()) {
             check5.setVisible(true);
-        } else if(!marketCorrecto()){
+        } else if (!marketCorrecto()) {
             check6.setVisible(true);
+        } else if (!pegiCorrecto()) {
+            check2.setVisible(true);
+        } else if (!descriptionCorrecto()) {
+            check7.setVisible(true);
+        } else if (!plataformaCorrecto()) {
+            check8.setVisible(true);
+        } else {
+            ListadoJuegos.anadirJuego(jTextFieldName.getText(), jComboBox1.getSelectedItem().toString(), jDateChooser2.getDate(), jTextFieldIdPrice.getText().toString(), jComboBox2.getSelectedItem().toString(), 5, jTextArea1.getText(), "platform");
+            
+            JOptionPane.showMessageDialog(this, "GAME ADDED", "INFO", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("juego añadido");
+            clear();
+            
         }
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
-        // TODO add your handling code here:
+        clear();
     }//GEN-LAST:event_jButtonClearActionPerformed
-
-    private void jTextFieldIdPriceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldIdPriceMouseClicked
-        if (jTextFieldIdPrice.getText().equalsIgnoreCase("Price")) {
-            jTextFieldIdPrice.setText("");
-            check5.setVisible(false);
-        }
-    }//GEN-LAST:event_jTextFieldIdPriceMouseClicked
 
     private void jTextFieldIdPriceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdPriceFocusLost
         if (jTextFieldIdPrice.getText().isBlank()) {
@@ -616,12 +680,33 @@ public class AddNew extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdPriceFocusLost
 
     private void jComboBox2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox2FocusGained
-       check6.setVisible(false);
+        check6.setVisible(false);
     }//GEN-LAST:event_jComboBox2FocusGained
 
     private void jComboBox1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox1FocusGained
         check3.setVisible(false);
     }//GEN-LAST:event_jComboBox1FocusGained
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+       Options op = new Options();
+        op.setVisible(true);
+        
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jTextFieldIdPriceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldIdPriceFocusGained
+        if (jTextFieldIdPrice.getText().equalsIgnoreCase("Price")) {
+            jTextFieldIdPrice.setText("");
+            check5.setVisible(false);
+        }
+    }//GEN-LAST:event_jTextFieldIdPriceFocusGained
+
+    private void jTextFieldNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNameFocusGained
+        if (jTextFieldName.getText().equalsIgnoreCase("Name")) {
+
+            jTextFieldName.setText("");
+            check1.setVisible(false);
+        }
+    }//GEN-LAST:event_jTextFieldNameFocusGained
 
     /**
      * @param args the command line arguments
@@ -698,7 +783,7 @@ public class AddNew extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldIdPrice;
