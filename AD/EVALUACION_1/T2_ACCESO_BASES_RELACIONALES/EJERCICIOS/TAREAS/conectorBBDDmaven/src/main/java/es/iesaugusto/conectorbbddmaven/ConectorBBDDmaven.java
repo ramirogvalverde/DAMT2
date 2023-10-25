@@ -28,6 +28,12 @@ public class ConectorBBDDmaven {
         metodosBBDD.ejercicio2(con);
         System.out.println("\nEjercicio3\n");
         metodosBBDD.ejercicio3(con);
+        System.out.println("\nEjercicio4\n");
+        metodosBBDD.ejercicio4(con);
+        System.out.println("\nEjercicio5\n");
+        metodosBBDD.ejercicio5(con);
+        System.out.println("\nEjercicio6\n");
+        metodosBBDD.ejercicio6(con);
     }
         
         
