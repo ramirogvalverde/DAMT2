@@ -1,4 +1,3 @@
-
 package conexion;
 
 import java.sql.Connection;
@@ -11,31 +10,26 @@ import java.sql.SQLException;
  * @author Ramiro
  */
 public class Ejercicio2 extends javax.swing.JFrame {
+
     private static ConexionBBDD conBD = new ConexionBBDD();
     private static java.sql.Connection con = conBD.conectar();
+
     /**
      * Creates new form Ejercicio2
      */
     public Ejercicio2() {
         initComponents();
     }
-    public static boolean loginUsuario(Connection con, String nombre) {
 
- 
+    public static boolean loginUsuario(Connection con, String nombre) {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
 
- 
-
         // se prepara la sentencia para la BBDD como un String
         String selectLogUsuario = "select nombre from usuarios where nombre = ?";
 
- 
-
         try {
-
- 
 
             //se crear el Statement Con la conexion a la BBDD y el String
             ps = con.prepareStatement(selectLogUsuario);
@@ -44,8 +38,6 @@ public class Ejercicio2 extends javax.swing.JFrame {
             //se ejecuta la sentencia y devuelve un resultado
             rs = ps.executeQuery();
 
- 
-
             //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
             //una vez en la primera linea podemos obtener la informacion;
             if (rs.next() && nombre.equals(rs.getString(1))) {
@@ -53,16 +45,13 @@ public class Ejercicio2 extends javax.swing.JFrame {
             }
             return false;
 
- 
-
         } catch (SQLException e) {
             //System.err.println("ERROR AL LEER Login Usuario");
             return false;
         }
 
- 
-
     }
+
     public static boolean loginContrasena(Connection con, String nombre, String contrasena) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -121,6 +110,11 @@ public class Ejercicio2 extends javax.swing.JFrame {
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 250, 40));
 
         jButton1.setText("CANCELAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 50));
 
         jButton2.setText("LOGIN");
@@ -138,15 +132,24 @@ public class Ejercicio2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(!loginUsuario(con, jTextField2.getText())){
+        if (!loginUsuario(con, jTextField2.getText())) {
             jTextField3.setText("Usuario no encontrado");
-        }else if(!loginContrasena(con,jTextField2.getText() ,jTextField1.getText())){
+        } else if (!loginContrasena(con, jTextField2.getText(), jTextField1.getText())) {
             jTextField3.setText("Contraseña incorrecta");
-        }else{
+        } else {
             jTextField3.setText("Login correcto");
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        
+        jTextField2.requestFocus();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +185,7 @@ public class Ejercicio2 extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
