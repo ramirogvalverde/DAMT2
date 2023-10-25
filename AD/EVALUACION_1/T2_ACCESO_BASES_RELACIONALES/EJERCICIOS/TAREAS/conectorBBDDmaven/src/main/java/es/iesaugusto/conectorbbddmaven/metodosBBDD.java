@@ -215,4 +215,104 @@ public class metodosBBDD {
         }
     }
     
+    /* 7. Lista los nombres y los precios de todos los productos de la tabla producto,
+        convirtiendo los nombres a minúscula. */
+    
+    public static void ejercicio7(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
+        String muestraEjercicio7 = "SELECT LOWER(nombre) , precio  from producto";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio7);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String nombre = rs.getString(1);
+                Double precioEuros = rs.getDouble(2);
+                
+                System.out.println("Nombre Producto: " + nombre + ", Precio: " + precioEuros);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
+    /* 8. Lista el nombre de todos los fabricantes en una columna, y en otra columna obtenga en mayúsculas los dos primeros caracteres del nombre
+        del fabricante. */
+    public static void ejercicio8(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
+        String muestraEjercicio8 = "select nombre, upper(substring(nombre,1,2)) from fabricante;";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio8);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String nombre = rs.getString(1);
+                Double precioEuros = rs.getDouble(2);
+                
+                System.out.println("Nombre fabricante: " + nombre + " ,iniciales: " + precioEuros);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
+    /* 9. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio */
+    
+    public static void ejercicio9(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
+        String muestraEjercicio9 = "select nombre, round(precio, 0) from producto";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio9);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String nombre = rs.getString(1);
+                Double precioEuros = rs.getDouble(2);
+                
+                System.out.println("Nombre: " + nombre + ", Precio: " + precioEuros);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    /* 10. Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna
+    cifra decimal. */
+    
+    public static void ejercicio10(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
+        String muestraEjercicio10 = "select nombre, format(precio, 0) from producto";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio10);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String nombre = rs.getString(1);
+                String precioEuros = rs.getString(2);
+                
+                System.out.println("Nombre: " + nombre + ", Precio sin decimales: " + precioEuros);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
 }
