@@ -18,13 +18,13 @@ public class Ejercicio1 {
      */
     public static void main(String[] args) {
         //ejercicio1: llamo al método que creo fuera del main
-        leerFichero();
+        leerPropiedadesFichero();
     }
 
     /* 1. Realiza un proyecto en Netbeans que lea los parámetros o propiedades de conexión de un fichero.
     El fichero configuración.props  */
     
-    public static void leerFichero() {
+    public static void leerPropiedadesFichero() {
         Properties properties = new Properties();
 
         try {

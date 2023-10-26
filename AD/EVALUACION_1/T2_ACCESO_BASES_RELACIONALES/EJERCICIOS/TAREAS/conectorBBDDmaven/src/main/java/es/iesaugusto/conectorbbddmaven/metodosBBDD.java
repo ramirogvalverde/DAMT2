@@ -170,7 +170,6 @@ public class metodosBBDD {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
         String muestraEjercicio5 = "SELECT nombre as nombre_producto, CONCAT(precio, ' EUR') as euros, CONCAT(precio * 0.9451, ' USD') as dólares from producto";
 
         try {
@@ -196,7 +195,6 @@ public class metodosBBDD {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
         String muestraEjercicio6 = "SELECT UPPER(nombre) , precio  from producto";
 
         try {
@@ -222,7 +220,6 @@ public class metodosBBDD {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
         String muestraEjercicio7 = "SELECT LOWER(nombre) , precio  from producto";
 
         try {
@@ -243,11 +240,11 @@ public class metodosBBDD {
     
     /* 8. Lista el nombre de todos los fabricantes en una columna, y en otra columna obtenga en mayúsculas los dos primeros caracteres del nombre
         del fabricante. */
+    
     public static void ejercicio8(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
         String muestraEjercicio8 = "select nombre, upper(substring(nombre,1,2)) from fabricante;";
 
         try {
@@ -257,9 +254,9 @@ public class metodosBBDD {
             while (rs.next()) {
                 // al haber concatenado en la consulta son todos getString
                 String nombre = rs.getString(1);
-                Double precioEuros = rs.getDouble(2);
+                String iniciales = rs.getString(2);
                 
-                System.out.println("Nombre fabricante: " + nombre + " ,iniciales: " + precioEuros);
+                System.out.println("Nombre fabricante: " + nombre + ", iniciales: " + iniciales);
             }
         } catch (SQLException e) {
             System.err.println("SQLException");
@@ -271,8 +268,7 @@ public class metodosBBDD {
     public static void ejercicio9(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
+        
         String muestraEjercicio9 = "select nombre, round(precio, 0) from producto";
 
         try {
@@ -297,7 +293,6 @@ public class metodosBBDD {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        // se puede traer el dato de los precios solos, sin el EUR o USD y de esa forma convertirlo a dólares en el código, pero me gusta más así
         String muestraEjercicio10 = "select nombre, format(precio, 0) from producto";
 
         try {
@@ -315,4 +310,122 @@ public class metodosBBDD {
             System.err.println("SQLException");
         }
     }
+    /* 11. Lista el identificador de los fabricantes que tienen productos en la
+        tabla producto. */
+    
+    public static void ejercicio11(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String muestraEjercicio11 = "SELECT fabricante.id from fabricante inner join producto where fabricante.id=id_fabricante";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio11);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String id = rs.getString(1);
+                
+                System.out.println("Identificador: " + id);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
+    /* 12. Lista el identificador de los fabricantes que tienen productos en la
+        tabla producto, eliminando los identificadores que aparecen repetidos */
+    
+    public static void ejercicio12(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String muestraEjercicio12 = "SELECT Distinct fabricante.id from fabricante inner join producto where fabricante.id=id_fabricante";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio12);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String id = rs.getString(1);
+                
+                System.out.println("Identificador: " + id);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
+    /* 13. Lista los nombres de los fabricantes ordenados de forma ascendente. */
+    
+    public static void ejercicio13(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String muestraEjercicio13 = "select nombre from fabricante order by nombre asc";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio13);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                // al haber concatenado en la consulta son todos getString
+                String nombre = rs.getString(1);
+                
+                System.out.println("Nombre: " + nombre);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
+    /* 14. Lista los nombres de los fabricantes ordenados de forma descendente. */
+    
+    public static void ejercicio14(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String muestraEjercicio14 = "select nombre from fabricante order by nombre desc";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio14);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                String nombre = rs.getString(1);
+                
+                System.out.println("Nombre: " + nombre);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }  
+    
+    /* 15. Lista los nombres de los productos ordenados en primer lugar por el
+        nombre de forma ascendente y en segundo lugar por el precio de forma descendente.. */
+    
+    public static void ejercicio15(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String muestraEjercicio15 = "select nombre from producto order by nombre asc, precio desc";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio15);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                String nombre = rs.getString(1);
+                
+                System.out.println("Nombre: " + nombre);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+    }
+    
 }

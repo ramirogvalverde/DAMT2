@@ -15,7 +15,7 @@ public class ConexionBBDD {
     static Connection con;
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String USER = "root"; 
-    static final String PASS = "";
+    static final String PASS = "12341234";
     static final String BD = "tienda"; // nombre de la base de datos
     //la direccion para conectar a la bbdd se le pasa como parametro "BD"
     

@@ -17,11 +17,12 @@ public class ConectorBBDDmaven {
 
     public static void main(String[] args) {
         
-        
+        //pruebas previas...
         //System.out.println("Listado de productos:\n");
         //metodosBBDD.listarProductos(con);
         //System.out.println("\nListado de proveedores\n");
         //metodosBBDD.listarProveedores(con);
+        
         System.out.println("\nEjercicio1\n");
         metodosBBDD.ejercicio1(con);
         System.out.println("\nEjercicio2\n");
@@ -42,6 +43,17 @@ public class ConectorBBDDmaven {
         metodosBBDD.ejercicio9(con);
         System.out.println("\nEjercicio10\n");
         metodosBBDD.ejercicio10(con);
+        System.out.println("\nEjercicio11\n");
+        metodosBBDD.ejercicio11(con);
+        System.out.println("\nEjercicio12\n");
+        metodosBBDD.ejercicio12(con);
+        System.out.println("\nEjercicio13\n");
+        metodosBBDD.ejercicio13(con);
+        System.out.println("\nEjercicio14\n");
+        metodosBBDD.ejercicio14(con);
+        System.out.println("\nEjercicio15\n");
+        metodosBBDD.ejercicio15(con);
+        
     }
         
         
