@@ -17,7 +17,7 @@ public class ConexionBBDD {
     static Connection con;
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // esto por lo que entiendo utiliza el driver que bajamos (el jar)
     static final String USER = "root"; 
-    static final String PASS = "12341234";
+    static final String PASS = "";
     static final String BD = "ubisoft"; // nombre de la base de datos
    
     static final String IP = "localhost";
