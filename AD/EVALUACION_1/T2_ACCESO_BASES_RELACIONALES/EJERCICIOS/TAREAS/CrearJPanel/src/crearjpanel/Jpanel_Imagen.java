@@ -1,6 +1,7 @@
 
 package crearjpanel;
 
+import java.io.File;
 import java.io.Serializable;
 import javax.swing.JPanel;
 
@@ -11,18 +12,20 @@ import javax.swing.JPanel;
 
 public class Jpanel_Imagen extends JPanel implements Serializable {
 
-    String rutaImagen;
+    private File rutaImagen;
     
     public Jpanel_Imagen() {
     }
 
-    public String getRutaImagen() {
+    public File getRutaImagen() {
         return rutaImagen;
     }
 
-    public void setRutaImagen(String rutaImagen) {
+    public void setRutaImagen(File rutaImagen) {
         this.rutaImagen = rutaImagen;
     }
+
+    
     
     
     
