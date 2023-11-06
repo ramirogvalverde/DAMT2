@@ -164,7 +164,6 @@ public class metodosBBDD {
 
     /* 5. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD). Utiliza los siguientes alias para las
         columnas: nombre de producto, euros, dólares. */
-
     // es igual que el anterior pero con diferentes alias para las columnas
     public static void ejercicio5(Connection con) {
         PreparedStatement ps = null;
@@ -286,7 +285,6 @@ public class metodosBBDD {
 
     /* 10. Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna
     cifra decimal. */
-
     public static void ejercicio10(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -311,7 +309,6 @@ public class metodosBBDD {
 
     /* 11. Lista el identificador de los fabricantes que tienen productos en la
         tabla producto. */
-
     public static void ejercicio11(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -425,12 +422,11 @@ public class metodosBBDD {
 
     /* 16. Inserta tres nuevos productos a tu elección. Muestra la nueva tabla por
         pantalla. */
-    
     public static void ejercicio16(Connection con) {
-        
+
         PreparedStatement ps = null;
         ResultSet rs = null;
-       
+
         // comienzo impidiendo que la ejecucion se autoguarde
         try {
             con.setAutoCommit(false);
@@ -438,11 +434,11 @@ public class metodosBBDD {
         } catch (SQLException e) {
             System.err.println("SQLException");
         }
-       
-        // insercion de un solo producto tal como enseña en los apuntes
+
+        // insercion de un solo producto tal como enseña en los apuntes y dos más a pelo
         String insercion16 = "insert into producto(nombre,precio,id_fabricante)"
-                + "values (?,?,?)";
-        
+                + "values (?,?,?), ('producto2',10.1 ,2 ),('producto3',10.2 ,3)";
+
         try {
             ps = con.prepareStatement(insercion16);
 
@@ -451,7 +447,7 @@ public class metodosBBDD {
             ps.setInt(3, 7);
 
             ps.executeUpdate();
-            
+
         } catch (SQLException e) {
             System.err.println("SQLException");
         }
@@ -464,13 +460,228 @@ public class metodosBBDD {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                System.out.println("Id: " + rs.getInt(1) + ", nombre" + rs.getString(2) + ", precio: " + rs.getDouble(3) + ", fabricante: " + rs.getInt(4));
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2) + ", precio: " + rs.getDouble(3) + ", fabricante: " + rs.getInt(4));
             }
 
         } catch (SQLException e) {
             System.err.println("SQLException");
         }
-       
+
+        // hago rollback para que los datos se borren. Inconveniente: el ID autoincremental sigue aumentando
+        try {
+            con.rollback();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+    }
+
+    /* 17. Inserta a dos fabricantes nuevos: Apple y Nvidia */
+    public static void ejercicio17(Connection con) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // comienzo impidiendo que la ejecucion se autoguarde
+        try {
+            con.setAutoCommit(false);
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // insercion de un solo producto tal como enseña en los apuntes y dos más a pelo
+        String insercion17 = "insert into fabricante(nombre)"
+                + "values ('Apple'),('Nvidia')";
+
+        try {
+            ps = con.prepareStatement(insercion17);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // muestro los datos
+        String muestraEjercicio17 = "select * from fabricante;";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio17);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // hago rollback para que los datos se borren. Inconveniente: el ID autoincremental sigue aumentando
+        try {
+            con.rollback();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+    }
+
+    /* 18. Modifica los productos de Seagate para que sean ahora de Lenovo. */
+    public static void ejercicio18(Connection con) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // comienzo impidiendo que la ejecucion se autoguarde
+        try {
+            con.setAutoCommit(false);
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // insercion de un solo producto tal como enseña en los apuntes y dos más a pelo
+        String insercion18 = "update producto set id_fabricante = (select id from fabricante where nombre = ?) where id_fabricante = (select id from fabricante where nombre = ?)";
+
+        try {
+            ps = con.prepareStatement(insercion18);
+
+            ps.setString(1, "Lenovo");
+            ps.setString(2, "Seagate");
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // muestro los datos
+        String muestraEjercicio18 = "select * from producto;";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio18);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2) + ", precio: " + rs.getDouble(3) + ", fabricante: " + rs.getInt(4));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // hago rollback para que los datos se borren. Inconveniente: el ID autoincremental sigue aumentando
+        try {
+            con.rollback();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+    }
+
+    /* 19. Borra los fabricantes que empiezan por a. */
+    public static void ejercicio19(Connection con) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        /* start transaction;
+    SET FOREIGN_KEY_CHECKS = 0;
+ 
+    delete from fabricante where nombre like('a%');
+ 
+    select * from fabricante;
+    SET FOREIGN_KEY_CHECKS = 1;
+ 
+ 
+    rollback; */
+        // comienzo impidiendo que la ejecucion se autoguarde
+        try {
+            con.setAutoCommit(false);
+            con.createStatement().execute("SET FOREIGN_KEY_CHECKS=0");
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // insercion de un solo producto tal como enseña en los apuntes y dos más a pelo
+        String insercion18 = "delete from fabricante where nombre like('a%')";
+
+        try {
+            ps = con.prepareStatement(insercion18);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // muestro los datos
+        String muestraEjercicio18 = "select * from fabricante;";
+
+        try {
+            ps = con.prepareStatement(muestraEjercicio18);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2));
+            }
+            con.createStatement().execute("SET FOREIGN_KEY_CHECKS=1");
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // hago rollback para que los datos se borren. Inconveniente: el ID autoincremental sigue aumentando
+        try {
+            con.rollback();
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+    }
+    
+    /* 20. Muestra las dos tablas diferenciándolas de alguna manera en la salida por
+Netbeans. */
+    public static void ejercicio20(Connection con) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        System.out.println("Productos:");
+        String insercion20a = "select * from producto";
+
+         try {
+            ps = con.prepareStatement(insercion20a);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2) + ", precio: " + rs.getDouble(3) + ", fabricante: " + rs.getInt(4));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
+        // muestro los datos
+        System.out.println("\nFabricantes:");
+        String insercion20b = "select * from fabricante;";
+
+        try {
+            ps = con.prepareStatement(insercion20b);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("Id: " + rs.getInt(1) + ", nombre: " + rs.getString(2));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("SQLException");
+        }
+
         // hago rollback para que los datos se borren. Inconveniente: el ID autoincremental sigue aumentando
         try {
             con.rollback();

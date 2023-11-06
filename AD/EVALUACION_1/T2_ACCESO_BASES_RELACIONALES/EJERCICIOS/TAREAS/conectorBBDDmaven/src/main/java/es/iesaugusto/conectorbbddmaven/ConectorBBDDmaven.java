@@ -55,7 +55,14 @@ public class ConectorBBDDmaven {
         metodosBBDD.ejercicio15(con);
         System.out.println("\nEjercicio16\n");
         metodosBBDD.ejercicio16(con);
-        
+         System.out.println("\nEjercicio17\n");
+        metodosBBDD.ejercicio17(con);
+        System.out.println("\nEjercicio18\n");
+        metodosBBDD.ejercicio18(con);
+        System.out.println("\nEjercicio19\n");
+        metodosBBDD.ejercicio19(con);
+        System.out.println("\nEjercicio20\n");
+        metodosBBDD.ejercicio20(con);
     }
         
         
