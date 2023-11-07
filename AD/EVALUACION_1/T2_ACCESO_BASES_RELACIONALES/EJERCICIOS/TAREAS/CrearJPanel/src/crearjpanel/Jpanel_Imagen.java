@@ -25,6 +25,7 @@ public class Jpanel_Imagen extends JPanel implements Serializable {
 
     public void setRutaImagen(File rutaImagen) {
         this.rutaImagen = rutaImagen;
+        
     }
 
     @Override
