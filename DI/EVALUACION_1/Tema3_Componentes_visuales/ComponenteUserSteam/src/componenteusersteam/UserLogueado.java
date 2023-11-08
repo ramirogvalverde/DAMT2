@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
@@ -19,6 +20,9 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
      */
     public UserLogueado() {
         initComponents();
+        String fechaLogin1 = LocalDate.now()+ " " + LocalTime.now().getHour() + ":" +LocalTime.now().getMinute();
+        jLabel2.setText(fechaLogin1);
+        
     }
     private File rutaImagen;
     
@@ -32,13 +36,10 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
         this.User = User;
         jLabel1.setText(User);
     }
-    
-    private LocalDate fechaLogin = LocalDate.now();
 
-    public void setFechaLogin(String fechaLogin1) {
-        fechaLogin1 = fechaLogin.toString();
-        jLabel2.setText(fechaLogin1);
-    }
+   
+       
+    
     
 
     public File getRutaImagen() {
@@ -71,19 +72,23 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
         jLabel2 = new javax.swing.JLabel();
         jpanel_Imagen1 = new componenteusersteam.Jpanel_Imagen();
 
-        jLabel1.setText("Nombre del tíu");
+        jPanelFondo.setOpaque(false);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Nombre");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Hora del login");
 
         javax.swing.GroupLayout jpanel_Imagen1Layout = new javax.swing.GroupLayout(jpanel_Imagen1);
         jpanel_Imagen1.setLayout(jpanel_Imagen1Layout);
         jpanel_Imagen1Layout.setHorizontalGroup(
             jpanel_Imagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 112, Short.MAX_VALUE)
+            .addGap(0, 134, Short.MAX_VALUE)
         );
         jpanel_Imagen1Layout.setVerticalGroup(
             jpanel_Imagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 141, Short.MAX_VALUE)
+            .addGap(0, 173, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
@@ -91,13 +96,13 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
         jPanelFondoLayout.setHorizontalGroup(
             jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFondoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jpanel_Imagen1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jpanel_Imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
         jPanelFondoLayout.setVerticalGroup(
             jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,8 +113,8 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
                     .addGroup(jPanelFondoLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel2)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
