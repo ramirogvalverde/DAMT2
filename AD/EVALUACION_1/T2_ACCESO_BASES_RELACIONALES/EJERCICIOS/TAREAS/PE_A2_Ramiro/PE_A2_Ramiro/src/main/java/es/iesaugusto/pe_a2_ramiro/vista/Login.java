@@ -101,6 +101,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 50));
 
         jButtonLogin.setText("LOGIN");
+        jButtonLogin.setName("login"); // NOI18N
         getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 120, 50));
 
         jTextFieldMensaje.setFocusable(false);
