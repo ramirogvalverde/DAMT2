@@ -1,13 +1,9 @@
 package componenteusersteam;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,7 +17,7 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
     public UserLogueado() {
         initComponents();
         String fechaLogin1 = LocalDate.now()+ " " + LocalTime.now().getHour() + ":" +LocalTime.now().getMinute();
-        jLabel2.setText(fechaLogin1);
+        jLabelDateLogin.setText(fechaLogin1);
         
     }
     private File rutaImagen;
@@ -34,7 +30,7 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
 
     public void setUser(String User) {
         this.User = User;
-        jLabel1.setText(User);
+        jLabelUserName.setText(User);
     }
 
    
@@ -68,17 +64,19 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
     private void initComponents() {
 
         jPanelFondo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelUserName = new javax.swing.JLabel();
+        jLabelDateLogin = new javax.swing.JLabel();
         jpanel_Imagen1 = new componenteusersteam.Jpanel_Imagen();
 
         jPanelFondo.setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre");
+        jLabelUserName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelUserName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelUserName.setText("Nombre");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Hora del login");
+        jLabelDateLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabelDateLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDateLogin.setText("Hora del login");
 
         javax.swing.GroupLayout jpanel_Imagen1Layout = new javax.swing.GroupLayout(jpanel_Imagen1);
         jpanel_Imagen1.setLayout(jpanel_Imagen1Layout);
@@ -100,8 +98,8 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
                 .addComponent(jpanel_Imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDateLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
         jPanelFondoLayout.setVerticalGroup(
@@ -111,9 +109,9 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
                 .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanel_Imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelFondoLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelUserName)
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelDateLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -131,8 +129,8 @@ public class UserLogueado extends javax.swing.JPanel implements Serializable {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelDateLogin;
+    private javax.swing.JLabel jLabelUserName;
     private javax.swing.JPanel jPanelFondo;
     private componenteusersteam.Jpanel_Imagen jpanel_Imagen1;
     // End of variables declaration//GEN-END:variables

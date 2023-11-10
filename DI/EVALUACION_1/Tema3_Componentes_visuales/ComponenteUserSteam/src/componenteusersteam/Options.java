@@ -4,6 +4,8 @@
  */
 package componenteusersteam;
 
+import java.io.File;
+
 /**
  *
  * @author damt210
@@ -17,6 +19,12 @@ public class Options extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Options(String nombre) {
+        initComponents();
+        userLogueado1.setRutaImagen(new File("Ramiro.png"));
+        userLogueado1.setUser(nombre);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,25 +37,29 @@ public class Options extends javax.swing.JFrame {
         userLogueado1 = new componenteusersteam.UserLogueado();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(42, 71, 94));
+
+        userLogueado1.setBackground(new java.awt.Color(23, 26, 33));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(76, 76, 76)
                 .addComponent(userLogueado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(85, 85, 85)
                 .addComponent(userLogueado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -18,7 +18,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
 
         Usuario Ramiro = new Usuario("ramiro@steam.com", "1234");
-        Usuario ra = new Usuario("ramiro", "1234");
+        Usuario ra = new Usuario("Ramiro", "1234");
         listaUsuarios.add(Ramiro);
         listaUsuarios.add(ra);
         
@@ -281,8 +281,12 @@ public class Login extends javax.swing.JFrame {
 
         if (estaEnLista(jTextFieldId.getText().toString(),String.valueOf(jPasswordField1.getPassword()))) {
 
-           
+           Options op = new Options(jTextFieldId.getText());
+           //Options op = new Options();
+           op.setVisible(true);
+           this.setVisible(false);
 
+           
         } else {
 
         }
