@@ -1,7 +1,6 @@
 package es.iesaugusto.pe_a2_ramiro.controlador;
 
 import es.iesaugusto.pe_a2_ramiro.modelo.ConexionBBDD;
-import es.iesaugusto.pe_a2_ramiro.vista.ConsultaDatos;
 import es.iesaugusto.pe_a2_ramiro.vista.Login;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -29,7 +28,7 @@ public class ControladorLogin implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+                
         if (e.getComponent().getName().equalsIgnoreCase("cancelar")) {
             lg.getjTextFieldContrasenia().setText("");
             lg.getjTextFieldUsuario().setText("");

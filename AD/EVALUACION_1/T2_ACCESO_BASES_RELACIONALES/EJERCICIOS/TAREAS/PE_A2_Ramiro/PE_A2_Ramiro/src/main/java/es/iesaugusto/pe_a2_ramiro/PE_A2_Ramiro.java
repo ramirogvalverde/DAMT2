@@ -3,7 +3,6 @@
 package es.iesaugusto.pe_a2_ramiro;
 
 import es.iesaugusto.pe_a2_ramiro.controlador.ControladorLogin;
-import es.iesaugusto.pe_a2_ramiro.vista.Login;
 
 /**
  *
