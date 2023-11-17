@@ -83,6 +83,9 @@
     <Component class="tarea_3_3_componentes.TexfieldColor" name="texfieldColor1">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="En el panel de preferencias puedes modificar los valores del campo"/>
+        <Property name="a_colorFondoAntes" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="0" type="rgb"/>
+        </Property>
         <Property name="a_colorFondoDespues" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="cc" red="cc" type="rgb"/>
         </Property>

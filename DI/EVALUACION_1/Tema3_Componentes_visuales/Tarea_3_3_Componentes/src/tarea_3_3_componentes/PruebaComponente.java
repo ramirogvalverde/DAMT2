@@ -43,6 +43,7 @@ public class PruebaComponente extends javax.swing.JFrame {
         jLabel3.setText("Prueba 3");
 
         texfieldColor1.setToolTipText("En el panel de preferencias puedes modificar los valores del campo");
+        texfieldColor1.setA_colorFondoAntes(new java.awt.Color(0, 51, 51));
         texfieldColor1.setA_colorFondoDespues(new java.awt.Color(204, 204, 0));
         texfieldColor1.setA_colorTextoDespues(new java.awt.Color(51, 51, 0));
 
