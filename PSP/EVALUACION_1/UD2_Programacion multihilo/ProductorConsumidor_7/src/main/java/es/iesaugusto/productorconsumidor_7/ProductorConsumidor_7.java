@@ -35,6 +35,7 @@ public class ProductorConsumidor_7 {
                 Logger.getLogger(ProductorConsumidor_7.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        System.out.println("\nFIN DEL PROGRAMA: BUFFER VACÍO");
 
     }
 }

@@ -1,6 +1,7 @@
 
 package es.iesaugusto.productorconsumidor_7;
 
+import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +26,12 @@ public class Buffer {
         
         for (int i = posicion; i < posicion + 3; i++) {
             buffer[i]= (int)(Math.random()*(9-0+1)+0);
-            System.out.println("la escritura de la posicion " + i + " es " + buffer[i]);
+            System.out.println("Puesto el número " + buffer[i] + " en el buffer en la posición " + i);
+            try{
+                sleep((int)(Math.random()*1000));
+            }catch(InterruptedException e){
+                System.out.println("Interrupción del hilo...");
+            }
         }
         posicion +=3;
         notifyAll();
@@ -42,7 +48,7 @@ public class Buffer {
         }
         
         for (int i = posicion -1 ; i >= posicion - 3; i--) {
-            System.out.println("la lectura de la posicion " + i + " es " + buffer[i]);
+            System.out.println ("recogo el número " + buffer[i] + " del buffer en la posición " + i);
             
         }
         posicion = posicion - 3;
