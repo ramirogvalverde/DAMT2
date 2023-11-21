@@ -5,7 +5,8 @@
 package componentesemaforo;
 
 import java.awt.Color;
-import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,24 @@ public class DI_RA3_Gutierrez_Vaverde_Ramiro extends javax.swing.JFrame {
     public DI_RA3_Gutierrez_Vaverde_Ramiro() {
         initComponents();
     }
+    
+    private Color selector() {
+        //Crear Objeto Color Selector
+        JColorChooser colorChooser = new JColorChooser();
+        
+        //Mostrar el selector
+        int resultado = JOptionPane.showConfirmDialog(null, colorChooser, "Selecciona un color", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+ 
+        
+        //Coger el color
+        if (resultado == JOptionPane.OK_OPTION) {
+            return colorChooser.getColor();
+ 
+        } else {
+            return Color.BLACK;
+        }
+    }
+    
     private Color jlabel1Color;
     private Color jlabel2Color;
     private Color jlabel3Color;
@@ -64,6 +83,9 @@ public class DI_RA3_Gutierrez_Vaverde_Ramiro extends javax.swing.JFrame {
         miBotonAlto = new componentesemaforo.MiBotonColores();
         miBotonPrecaucion = new componentesemaforo.MiBotonColores();
         miBotonPuedePasar = new componentesemaforo.MiBotonColores();
+        jButtonColorPrecaucion = new javax.swing.JButton();
+        jButtonColorPasar = new javax.swing.JButton();
+        jButtonAlto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DI_RA3_Gutierrez_Vaverde_Ramiro");
@@ -103,38 +125,76 @@ public class DI_RA3_Gutierrez_Vaverde_Ramiro extends javax.swing.JFrame {
             }
         });
 
+        jButtonColorPrecaucion.setText("...");
+        jButtonColorPrecaucion.setToolTipText("Cambia el color del texto oculto");
+        jButtonColorPrecaucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColorPrecaucionActionPerformed(evt);
+            }
+        });
+
+        jButtonColorPasar.setText("...");
+        jButtonColorPasar.setToolTipText("Cambia el color del texto oculto");
+        jButtonColorPasar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonColorPasarActionPerformed(evt);
+            }
+        });
+
+        jButtonAlto.setText("...");
+        jButtonAlto.setToolTipText("Cambia el color del texto oculto");
+        jButtonAlto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAltoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAlto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(miBotonPuedePasar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonColorPrecaucion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonColorPasar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(miBotonPuedePasar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(miBotonAlto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(miBotonPrecaucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(87, 87, 87))
+                    .addComponent(miBotonPrecaucion, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAlto))
                 .addGap(18, 18, 18)
                 .addComponent(miBotonAlto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonColorPrecaucion))
                 .addGap(18, 18, 18)
                 .addComponent(miBotonPrecaucion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonColorPasar))
                 .addGap(18, 18, 18)
                 .addComponent(miBotonPuedePasar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(81, 81, 81))
         );
 
         pack();
@@ -156,6 +216,22 @@ public class DI_RA3_Gutierrez_Vaverde_Ramiro extends javax.swing.JFrame {
         jLabel3.setText("Los vehículos que circulan por el carril sobre el cual está situado han de parar");
        jLabel3.setForeground(miBotonPuedePasar.getA_colorMensaje());
     }//GEN-LAST:event_miBotonPuedePasarActionPerformed
+
+    private void jButtonAltoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltoActionPerformed
+        
+        Color nuevoColor = selector();
+        jLabel1.setForeground(nuevoColor);
+    }//GEN-LAST:event_jButtonAltoActionPerformed
+
+    private void jButtonColorPrecaucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColorPrecaucionActionPerformed
+        Color nuevoColor = selector();
+        jLabel2.setForeground(nuevoColor);
+    }//GEN-LAST:event_jButtonColorPrecaucionActionPerformed
+
+    private void jButtonColorPasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColorPasarActionPerformed
+        Color nuevoColor = selector();
+        jLabel3.setForeground(nuevoColor);
+    }//GEN-LAST:event_jButtonColorPasarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +269,9 @@ public class DI_RA3_Gutierrez_Vaverde_Ramiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAlto;
+    private javax.swing.JButton jButtonColorPasar;
+    private javax.swing.JButton jButtonColorPrecaucion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
