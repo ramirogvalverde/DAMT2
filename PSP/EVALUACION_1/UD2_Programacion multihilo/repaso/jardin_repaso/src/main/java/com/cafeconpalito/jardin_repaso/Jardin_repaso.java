@@ -1,8 +1,6 @@
 package com.cafeconpalito.jardin_repaso;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,31 +12,56 @@ public class Jardin_repaso {
 
     public static void main(String[] args) {
         Contador c = new Contador();
+
+        /*HiloEntra he= new HiloEntra(c);
+        Thread t = new Thread(he);
         
-        ExecutorService es= Executors.newFixedThreadPool(10);
-        
-        HiloSale[] salen= new HiloSale[15];
+        HiloSale hs= new HiloSale(c);
+        Thread t2 = new Thread(hs);
+
+        HiloSale[] salen = new HiloSale[15];
         HiloEntra[] entran = new HiloEntra[10];
-        
+
         for (int i = 0; i < salen.length; i++) {
-           salen[i] = new HiloSale(c);
-           es.execute(salen[i]);
+            salen[i] = new HiloSale(c);
+            t2.start();
         }
+        
         for (int i = 0; i < entran.length; i++) {
             entran[i] = new HiloEntra(c);
-            es.execute(entran[i]);
+            t.start();
         }
-        
+
         //el join del executor
-        
-         try {
-            es.awaitTermination(1, TimeUnit.DAYS);
+        try {
+            t.join();
         } catch (InterruptedException ex) {
             Logger.getLogger(Jardin_repaso.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        ArrayList<Thread> lista = new ArrayList<>();
+
+        for (int i = 0; i < 15; i++) {
+            HiloSale hs = new HiloSale(c);
+            Thread t = new Thread(hs);
+            lista.add(t);
         }
-        es.shutdown();
-       
+        for (int i = 0; i < 10; i++) {
+            HiloEntra he = new HiloEntra(c);
+            Thread t = new Thread(he);
+            lista.add(t);
+        }
+        for (Thread t : lista) {
+            t.start();
+        }
+        for (Thread t : lista) {
+            try {
+                t.join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Jardin_repaso.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         System.out.println("numero de personas dentro del jardín: " + c.muestraCuenta());
-        
+
     }
 }

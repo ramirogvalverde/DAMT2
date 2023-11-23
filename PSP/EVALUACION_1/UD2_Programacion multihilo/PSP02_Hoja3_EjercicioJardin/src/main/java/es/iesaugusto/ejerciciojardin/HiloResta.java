@@ -17,6 +17,7 @@ public class HiloResta extends Thread{
     @Override
     public void run() {
       contador.restaContador(1);
+      
     }
     
 }

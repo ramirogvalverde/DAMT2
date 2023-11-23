@@ -15,8 +15,7 @@ public class HiloEntra implements Runnable {
     @Override
     public void run() {
         c.entra(1);
-        System.out.println("Entra una persona");
-        System.out.println("Quedan " + c.muestraCuenta() + " personas dentro");
+       
     }
 
 }

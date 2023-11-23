@@ -15,8 +15,7 @@ public class HiloSale implements Runnable{
     @Override
     public void run() {
        c.sale(1);
-        System.out.println("Sale una persona");
-        System.out.println("Quedan " + c.muestraCuenta() + " personas dentro");
+        
     }
     
 }
