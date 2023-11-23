@@ -24,7 +24,7 @@ guardará una referencia en un array para hacer al final un join de todos los hi
         
         for (int i = 0; i < args.length; i++) {
 
-            HiloLineas hilo = new HiloLineas(args[i]);
+            HiloLineas hilo= new HiloLineas(args[i]);
             lista.add(hilo);
         
         }
