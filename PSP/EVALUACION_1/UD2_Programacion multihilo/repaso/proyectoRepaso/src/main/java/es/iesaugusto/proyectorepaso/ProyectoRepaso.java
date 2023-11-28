@@ -18,16 +18,16 @@ public class ProyectoRepaso {
 
 
 
-        Productor p = new Productor(b, "ramiro", 7000);
+        Productor p = new Productor(b, "ramiro", 1000);
         lista.add(p);
         
         p.start();
         
-        Consumidor c1 = new Consumidor(b, "albano", 5000);
+        Consumidor c1 = new Consumidor(b, "albano", 1000);
         lista.add(c1);
         c1.setPriority(Thread.MAX_PRIORITY);
         
-        Consumidor c2 = new Consumidor(b, "daniel", 8000);
+        Consumidor c2 = new Consumidor(b, "daniel", 1000);
         lista.add(c2);
         c2.setPriority(Thread.NORM_PRIORITY);
 

@@ -59,7 +59,7 @@ public class Buffer {
         notifyAll();
     }
 
-    public synchronized void termineLosTemas(){ // Cuando llegues a la cantidad necesaria
+    public synchronized void termineLosTemas(){
         if (veces == 5 ) {
             termine = true;
         }
